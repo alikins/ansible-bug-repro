@@ -1,0 +1,1 @@
+ansible-pull -d /var/lib/ansible -U git@gitserver:/path/to/repo.git local.yml -vvvv

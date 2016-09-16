@@ -1,0 +1,21 @@
+- hosts: localhost
+  tasks:
+    - name: Archive a single file with dest
+      archive:
+        path:
+          - /tmp/text_file_1.txt
+        dest: /tmp/test-archive/foo.zip
+      register: single_file_zip_results
+
+    - name: debug archive a single file with no dest
+      debug: var=single_file_zip_results
+
+    - name: Archive a single file with dest of targz
+      archive:
+        path:
+          - /tmp/text_file_1.txt
+        dest: /tmp/test-archive/foo.tar.gz
+      register: single_file_targz_results
+
+    - name: debug archive a single file with no dest into a tar.gz
+      debug: var=single_file_targz_results

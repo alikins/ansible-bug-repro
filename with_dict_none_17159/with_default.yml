@@ -1,0 +1,13 @@
+- hosts: localhost
+  gather_facts: no
+  vars:
+        param2: ~
+
+        foo:
+          bar: ~
+          baz: "{{ param2 }}"
+  tasks:
+        - debug: msg="{{ param2 }}"
+        - debug: msg="{{ param2 | default('test') }}"
+        - debug: msg="{{ foo }}"
+        - debug: msg="{{ foo.bar }}"

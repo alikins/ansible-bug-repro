@@ -1,0 +1,20 @@
+- hosts: localhost
+  gather_facts: no
+  vars:
+        param2: 7
+
+        foo:
+          bar: "7"
+          baz: 7
+  tasks:
+      - name: debug param2 should be int 7
+        debug: msg="{{ param2 }}"
+      - name: debug param2 or default
+        debug: msg="{{ param2 | default('test') }}"
+      - name: debug foo
+        debug: msg="{{ foo }}"
+      - name: debug foo.bar
+        debug: msg="{{ foo.bar }}"
+      - name: debug foo.baz should be int 7 not string
+        debug: msg="{{ foo.baz }}"
+

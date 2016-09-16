@@ -1,0 +1,10 @@
+- name: myname
+  hosts: localhost
+  gather_facts: True
+  tasks:
+    - block:
+      - include: tasks.yml
+      - include: tasks2.yml
+      rescue:
+      - debug: msg="rescuing from the failure at the top level"
+      any_errors_fatal: yes

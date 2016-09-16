@@ -1,0 +1,15 @@
+- hosts: localhost
+  gather_facts: no
+  vars:
+        param2: ~
+
+        foo:
+          bar: ~
+          baz: "{{ param2 }}"
+  tasks:
+        - debug: msg="{{ param2 }}"
+        - debug: msg="{{ foo }}"
+
+# foo.bar should be null, but ends up as empty string
+        - debug: msg="foo.bar should be |null| but is |{{ foo.bar }}|"
+        - debug: msg="foo.baz should be |null| but is |{{ foo.baz }}|"

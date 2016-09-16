@@ -1,0 +1,9 @@
+- name: test dnf group install
+  hosts: localhost
+  gather_facts: false
+  become: yes
+  become_user: root
+
+  tasks:
+      - name: install xfce desktop
+        dnf: name="@Xfce Desktop" state=present

@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  #any_errors_fatal: True
+  user: ansible
+  gather_facts: false
+  tasks:
+
+  - ping:
+- hosts: all
+  connection: local
+  gather_facts: false
+  #any_errors_fatal: True
+
+  tasks:
+
+  - fail:
+      msg: 'I failed'
+
+

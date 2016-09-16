@@ -1,0 +1,24 @@
+- name: Intentionally fail to connect to host
+  hosts: test_group
+  any_errors_fatal: yes
+  max_fail_percentage: 0
+  remote_user: user-that-does-not-exist
+  become_user: root
+  become: yes
+  gather_facts: yes
+  serial: 1
+  tasks:
+    - name: gather facts
+      action: ec2_facts
+      register: result
+      until: result|success
+      ignore_errors: yes
+      retries: 15
+      delay: 10
+    - debug: msg="This does not get executed."
+
+- name: This play should not execute, but does
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - debug: msg="This message shouldn't appear, but does."

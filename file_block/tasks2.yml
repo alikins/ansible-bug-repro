@@ -1,0 +1,7 @@
+- block:
+  #- file: path=out/file10 state=directory
+  - debug: msg="this is the block in tasks2"
+  rescue:
+  #- file: path=out/file20 state=directory
+  - debug: msg="this is the rescue in task2"
+  any_errors_fatal: yes

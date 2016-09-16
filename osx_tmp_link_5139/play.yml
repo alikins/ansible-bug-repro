@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: copy over script
+      copy: src=somefile.sh dest=/tmp

@@ -1,0 +1,40 @@
+- hosts: localhost
+  tasks:
+    - name: ensure target is empty
+      file: name=/tmp/ansible.git state=absent
+
+    - name: SHELL clone repo
+      shell: git clone https://github.com/ansible/ansible-modules-core /tmp/ansible.git
+
+    - name: SHELL pull repo
+      shell:
+        cmd: git fetch --tags && git reset --hard origin/HEAD
+        chdir: /tmp/ansible.git
+
+    - name: ensure target is empty
+      file: name=/tmp/ansible.git state=absent
+
+    - name: MODULE clone repo
+      git:
+        repo: https://github.com/ansible/ansible-modules-core
+        dest: /tmp/ansible.git
+
+    - name: MODULE pull repo
+      git:
+        repo: https://github.com/ansible/ansible-modules-core
+        dest: /tmp/ansible.git
+
+    - name: ensure target is empty
+      file: name=/tmp/ansible.git state=absent
+
+    - name: MODULE-VERSION clone repo
+      git:
+        repo: https://github.com/ansible/ansible-modules-core
+        dest: /tmp/ansible.git
+        version: devel
+
+    - name: MODULE-VERSION pull repo
+      git:
+        repo: https://github.com/ansible/ansible-modules-core
+        dest: /tmp/ansible.git
+        version: devel

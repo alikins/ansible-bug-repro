@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - include: inner.yml
+      vars:
+        parameter_1: "{{ 'value_' + item }}"
+      with_items:
+        - "1"

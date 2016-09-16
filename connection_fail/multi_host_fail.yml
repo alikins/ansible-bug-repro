@@ -1,0 +1,33 @@
+---
+- hosts: swoop
+  tasks:
+    - shell: 'false'
+      when: inventory_hostname == play_hosts[0]
+
+- hosts: all
+  tasks:
+    - shell: echo {{ inventory_hostname }}
+
+- hosts: all
+  tasks:
+    - shell: echo {{ inventory_hostname }}
+
+- hosts: all
+  tasks:
+    - shell: echo {{ inventory_hostname }}
+
+- hosts: all
+  tasks:
+    - shell: echo {{ inventory_hostname }}
+
+- hosts: all
+  tasks:
+    - shell: echo {{ inventory_hostname }}
+
+- hosts: all
+  tasks:
+    - shell: echo {{ inventory_hostname }}
+
+- hosts: all
+  tasks:
+    - shell: echo {{ inventory_hostname }}

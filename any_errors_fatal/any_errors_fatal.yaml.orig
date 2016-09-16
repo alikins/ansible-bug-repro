@@ -1,0 +1,19 @@
+---
+
+- hosts: test
+  any_errors_fatal: yes
+  user: ansible
+  gather_facts: false
+
+  tasks:
+
+  - ping:
+
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+
+  - debug:
+      msg: 'Should not run'

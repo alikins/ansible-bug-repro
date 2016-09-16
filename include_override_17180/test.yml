@@ -1,0 +1,15 @@
+---
+- hosts: swoop
+
+  vars:
+    testvar1: testval
+
+  tasks:
+    - include: testinclude1.yml
+
+    - include: testinclude2.yml
+      with_items:
+        - testitem
+
+    - include: testinclude1.yml
+

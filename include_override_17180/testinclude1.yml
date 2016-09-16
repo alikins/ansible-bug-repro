@@ -1,0 +1,5 @@
+- block:
+  - debug: msg="{{ testvar1 }}"
+  vars:
+    testvar1: overriddenval
+

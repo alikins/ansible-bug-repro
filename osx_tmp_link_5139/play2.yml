@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    #- name: copy over script
+    #  copy: src=somefile.sh dest=/tmp
+    - name: copy over script with mode 755
+      copy: src=somefile.sh dest=/tmp mode=755

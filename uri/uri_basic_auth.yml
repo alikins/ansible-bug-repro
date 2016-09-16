@@ -1,0 +1,6 @@
+---
+- name: Check to see if Grafana API is accessible
+  hosts: localhost
+  gather_facts: false
+  tasks:
+  - uri: url="http://admin@storage.g.a:5000/" method=GET HEADER_Content-Type=application/json HEADER_Accept=application/json body_format=json

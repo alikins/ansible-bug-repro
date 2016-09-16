@@ -1,0 +1,23 @@
+---
+
+- hosts: test
+  any_errors_fatal: True
+  user: ansible
+  gather_facts: false
+  max_fail_percentage: 0
+  serial: 1
+  tasks:
+
+  - ping:
+
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  any_errors_fatal: True
+  max_fail_percentage: 0
+  serial: 1
+
+  tasks:
+
+  - debug:
+      msg: 'Should not run'

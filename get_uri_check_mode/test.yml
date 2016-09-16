@@ -1,0 +1,12 @@
+---
+ - hosts: localhost
+   tasks:
+   - name: get a url
+     get_url:
+       url: "http://ansible.com/index.html"
+       dest: /tmp/get_url_test
+    # owner: username
+    #    group: username
+    #    checksum: 
+    #        md5: 14bf0902d9e9ff992acfb594e32b4f61
+

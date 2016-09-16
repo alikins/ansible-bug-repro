@@ -1,0 +1,12 @@
+- name: test quotes
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: shell command with quoted strings in output
+      shell: printf \\\\\\\  foo >2&
+      register: shell_out_result
+      failed_when: ("foo" in shell_out_result.stderr
+
+    - name: debug shell_out
+      debug: var=shell_out_result

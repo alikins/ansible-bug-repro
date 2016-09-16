@@ -1,0 +1,9 @@
+- block:
+  - debug: msg="in the block, going to include the failure"
+  - include: file_to_fail.yml
+  #- file: path=out/file3 state=directory
+  - debug: msg="you should not see me"
+  rescue:
+  #- file: path=out/file2 state=directory
+  - debug: msg="this is the rescue after the failed include"
+  any_errors_fatal: yes

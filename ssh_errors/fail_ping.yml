@@ -1,0 +1,7 @@
+---
+- hosts: cantconnect, namefailure, nokey
+  become: true
+  become: root
+  tasks:
+    - name: ping
+      ping:

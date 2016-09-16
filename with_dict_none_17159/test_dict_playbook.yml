@@ -1,0 +1,15 @@
+- name: test dictionary
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    test:
+      one: "first test"
+      two: "{{ does_not_exist }}"
+      three: "third test"
+
+  tasks:
+    - debug: var=test['one']
+    - debug: var=test['two']
+    - debug: var=test['three']

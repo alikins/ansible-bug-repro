@@ -1,0 +1,9 @@
+---
+- name: whoami 1
+  hosts: swoop
+  gather_facts: no
+  tasks:
+    - shell: whoami
+      register: whoami1
+    - debug: msg={{ whoami1.stdout }}
+  remote_user: adrian

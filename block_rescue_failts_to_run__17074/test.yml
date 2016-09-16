@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - block:
+        - debug: msg='This is the block'
+          notify: run me even after an error
+        - command: /bin/false
+      rescue:
+        - debug: msg='This is a rescue'
+        - name: make sure all handlers run
+          meta: flush_handlers
+      always:
+        - debug: msg='I run always'
+
+  handlers:
+    - name: run me even after an error
+      debug: msg='this handler runs even on error'

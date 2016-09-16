@@ -1,0 +1,495 @@
+PYTHONPATH=./lib nosetests -d -w test/units -v --with-coverage --cover-package=ansible --cover-branches
+test_basic_error (units.errors.test_errors.TestErrors) ... ok
+test_basic_unicode_error (units.errors.test_errors.TestErrors) ... ok
+test_error_with_object (units.errors.test_errors.TestErrors) ... ok
+test_get_error_lines_from_file (units.errors.test_errors.TestErrors) ... ok
+test_host_state (units.executor.test_play_iterator.TestPlayIterator) ... ok
+test_play_iterator (units.executor.test_play_iterator.TestPlayIterator) ... ok
+test_play_iterator_add_tasks (units.executor.test_play_iterator.TestPlayIterator) ... ok
+test_play_iterator_nested_blocks (units.executor.test_play_iterator.TestPlayIterator) ... ok
+test_playbook_executor__get_serialized_batches (units.executor.test_playbook_executor.TestPlayIterator) ... ok
+test_task_executor_execute (units.executor.test_task_executor.TestTaskExecutor) ... ok
+test_task_executor_get_loop_items (units.executor.test_task_executor.TestTaskExecutor) ... ok
+test_task_executor_init (units.executor.test_task_executor.TestTaskExecutor) ... ok
+test_task_executor_poll_async_result (units.executor.test_task_executor.TestTaskExecutor) ... ok
+test_task_executor_run (units.executor.test_task_executor.TestTaskExecutor) ... ok
+test_task_executor_run_loop (units.executor.test_task_executor.TestTaskExecutor) ... ok
+test_task_executor_squash_items (units.executor.test_task_executor.TestTaskExecutor) ... ok
+test_task_result_basic (units.executor.test_task_result.TestTaskResult) ... ok
+test_task_result_is_changed (units.executor.test_task_result.TestTaskResult) ... ok
+test_task_result_is_failed (units.executor.test_task_result.TestTaskResult) ... ok
+test_task_result_is_skipped (units.executor.test_task_result.TestTaskResult) ... ok
+test_task_result_is_unreachable (units.executor.test_task_result.TestTaskResult) ... ok
+test_equality (units.inventory.test_host.TestHost) ... ok
+test_hashability (units.inventory.test_host.TestHost) ... ok
+test_expand_hostname_range (units.inventory.test_inventory.TestInventory) ...  [WARNING]: Host file not found:
+ok
+test_ranges (units.inventory.test_inventory.TestInventory) ... ok
+test_split_patterns (units.inventory.test_inventory.TestInventory) ... ok
+test_exit_json_args_exits (units.module_utils.basic.test_exit_json.TestAnsibleModuleExitJson) ... ok
+test_exit_json_no_args_exits (units.module_utils.basic.test_exit_json.TestAnsibleModuleExitJson) ... ok
+test_exit_json_proper_changed (units.module_utils.basic.test_exit_json.TestAnsibleModuleExitJson) ... ok
+test_fail_json_exits (units.module_utils.basic.test_exit_json.TestAnsibleModuleExitJson) ... ok
+test_exit_json_removes_values (units.module_utils.basic.test_exit_json.TestAnsibleModuleExitValuesRemoved) ... ok
+test_fail_json_removes_values (units.module_utils.basic.test_exit_json.TestAnsibleModuleExitValuesRemoved) ... ok
+test_did_not_hide_too_much (units.module_utils.basic.test_heuristic_log_sanitize.TestHeuristicLogSanitize) ... ok
+test_hides_parameter_secrets (units.module_utils.basic.test_heuristic_log_sanitize.TestHeuristicLogSanitize) ... ok
+test_hides_ssh_secrets (units.module_utils.basic.test_heuristic_log_sanitize.TestHeuristicLogSanitize) ... ok
+test_hides_url_secrets (units.module_utils.basic.test_heuristic_log_sanitize.TestHeuristicLogSanitize) ... ok
+test_get_fqdn (units.module_utils.basic.test_known_hosts.TestAnsibleModuleKnownHosts) ... ok
+test_is_ssh_url (units.module_utils.basic.test_known_hosts.TestAnsibleModuleKnownHosts) ... ok
+test_smoketest_journal (units.module_utils.basic.test_log.TestAnsibleModuleJournaldSmokeTest) ... ok
+test_log_args (units.module_utils.basic.test_log.TestAnsibleModuleLogJournal) ... ok
+test_no_log (units.module_utils.basic.test_log.TestAnsibleModuleLogJournal) ... ok
+test_output_matches (units.module_utils.basic.test_log.TestAnsibleModuleLogJournal) ... ok
+test_no_log (units.module_utils.basic.test_log.TestAnsibleModuleLogSyslog) ... ok
+test_output_matches (units.module_utils.basic.test_log.TestAnsibleModuleLogSyslog) ... ok
+test_smoketest_syslog (units.module_utils.basic.test_log.TestAnsibleModuleSysLogSmokeTest) ... ok
+test_no_removal (units.module_utils.basic.test_no_log.TestRemoveValues) ... ok
+test_strings_to_remove (units.module_utils.basic.test_no_log.TestRemoveValues) ... ok
+test_unknown_type (units.module_utils.basic.test_no_log.TestRemoveValues) ... ok
+test_return_values (units.module_utils.basic.test_no_log.TestReturnValues) ... ok
+test_unknown_type (units.module_utils.basic.test_no_log.TestReturnValues) ... ok
+test_ascii_stdout (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_check_rc_false (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_check_rc_true (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_cwd (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_cwd_inaccessible (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_cwd_not_a_dir (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_list_as_args (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_prompt_bad_regex (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_prompt_match_wo_data (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_prompt_no_match (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_str_as_args (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_text_stdin (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_tuple_as_args (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_unsafe_shell (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+test_utf8_output (units.module_utils.basic.test_run_command.TestAnsibleModuleRunCommand) ... ok
+Failure: AttributeError ('module' object has no attribute '__import__') ... ERROR
+units.module_utils.test_database.TestQuotePgIdentifier.test_how_many_dots ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_invalid_quotes('"table "invalid" double quote"', 'table', 'User escaped identifiers must escape extra quotes') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_invalid_quotes('"test"."too"."many"."dots"', 'schema', 'PostgreSQL does not support schema with more than 2 dots') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_invalid_quotes('test.too."many.dots"', 'database', 'PostgreSQL does not support database with more than 1 dots') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_invalid_quotes('"test"."too"."many"."dots"', 'database', 'PostgreSQL does not support database with more than 1 dots') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_invalid_quotes('test.too.many.dots', 'table', 'PostgreSQL does not support table with more than 3 dots') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_invalid_quotes('"schema "invalid"""."table "invalid"', 'table', 'User escaped identifiers must escape extra quotes') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_invalid_quotes('"schema".', 'table', 'Identifier name unspecified or unquoted trailing dot') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_invalid_quotes('"test"."too"."many"."dots"."for"."column"', 'column', 'PostgreSQL does not support column with more than 4 dots') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_invalid_quotes('"schema."table"', 'table', 'User escaped identifiers must escape extra quotes') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_invalid_quotes('"test.too".many.dots', 'database', 'PostgreSQL does not support database with more than 1 dots') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_invalid_quotes('"test"."too"."many"."dots"', 'table', 'PostgreSQL does not support table with more than 3 dots') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('."table"', '".""table"""') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"schema.".".table"', '"schema.".".table"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('public.table', '"public"."table"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"schema.test"."table.test"', '"schema.test"."table.test"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"schema."."table"', '"schema."."table"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"schema.".table', '"schema."."table"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('public."table ""test"""', '"public"."table ""test"""') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('schema.".table"', '"schema".".table"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"no end quote', '"""no end quote"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"schema test".table test', '"schema test"."table test"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('public.table "test"', '"public"."table ""test"""') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"schema test"."table test"', '"schema test"."table test"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"schema.table', '"""schema"."table"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"schema".".table"', '"schema".".table"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('public."table"', '"public"."table"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('schema test.table test', '"schema test"."table test"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('table "test"', '"table ""test"""') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('schema "test".table', '"schema ""test"""."table"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"public.table"', '"public.table"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"""wat"""."""test"""', '"""wat"""."""test"""') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"schema ""test""".table', '"schema ""test"""."table"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"public".table', '"public"."table"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('schema."table', '"schema"."""table"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('schema test."table test"', '"schema test"."table test"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('table.', '"table."') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('schema."table.something', '"schema"."""table"."something"') ... ok
+units.module_utils.test_database.TestQuotePgIdentifier.test_valid_quotes('"public"."table"', '"public"."table"') ... ok
+test_jsonify_empty (units.parsing.utils.test_jsonify.TestJsonify) ... ok
+test_jsonify_simple (units.parsing.utils.test_jsonify.TestJsonify) ... ok
+test_jsonify_simple_format (units.parsing.utils.test_jsonify.TestJsonify) ... ok
+test_jsonify_unicode (units.parsing.utils.test_jsonify.TestJsonify) ... ok
+test_cipher_not_set (units.parsing.vault.test_vault.TestVaultLib) ... ok
+test_decrypt_decrypted (units.parsing.vault.test_vault.TestVaultLib) ... ok
+test_encrypt_decrypt_aes (units.parsing.vault.test_vault.TestVaultLib) ... ok
+test_encrypt_decrypt_aes256 (units.parsing.vault.test_vault.TestVaultLib) ... ok
+test_encrypt_encrypted (units.parsing.vault.test_vault.TestVaultLib) ... ok
+test_format_output (units.parsing.vault.test_vault.TestVaultLib) ... ok
+test_is_encrypted (units.parsing.vault.test_vault.TestVaultLib) ... ok
+test_methods_exist (units.parsing.vault.test_vault.TestVaultLib) ... ok
+test_split_header (units.parsing.vault.test_vault.TestVaultLib) ... ok
+test_create_file (units.parsing.vault.test_vault_editor.TestVaultEditor) ... ok
+Skip testing decrypting 1.0 files if we don't have access to AES, KDF or ... ok
+test_decrypt_1_1 (units.parsing.vault.test_vault_editor.TestVaultEditor) ... ok
+test_methods_exist (units.parsing.vault.test_vault_editor.TestVaultEditor) ... ok
+Skip testing rekeying files if we don't have access to AES, KDF or ... ok
+test_error_conditions (units.parsing.yaml.test_loader.TestAnsibleLoaderBasic) ... ok
+test_front_matter (units.parsing.yaml.test_loader.TestAnsibleLoaderBasic) ... ok
+test_parse_dict (units.parsing.yaml.test_loader.TestAnsibleLoaderBasic) ... ok
+test_parse_list (units.parsing.yaml.test_loader.TestAnsibleLoaderBasic) ... ok
+test_parse_number (units.parsing.yaml.test_loader.TestAnsibleLoaderBasic) ... ok
+test_parse_short_dict (units.parsing.yaml.test_loader.TestAnsibleLoaderBasic) ... ok
+test_parse_string (units.parsing.yaml.test_loader.TestAnsibleLoaderBasic) ... ok
+test_parse_utf8_string (units.parsing.yaml.test_loader.TestAnsibleLoaderBasic) ... ok
+test_data_complete (units.parsing.yaml.test_loader.TestAnsibleLoaderPlay) ... ok
+test_line_numbers (units.parsing.yaml.test_loader.TestAnsibleLoaderPlay) ... ok
+test_no_str_in_data (units.parsing.yaml.test_loader.TestAnsibleLoaderPlay) ... ok
+test_with_ranges (units.parsing.test_addresses.TestParseAddress) ... ok
+test_without_ranges (units.parsing.test_addresses.TestParseAddress) ... ok
+test_parse_fail_from_file (units.parsing.test_data_loader.TestDataLoader) ... ok
+test_parse_json_from_file (units.parsing.test_data_loader.TestDataLoader) ... ok
+test_parse_yaml_from_file (units.parsing.test_data_loader.TestDataLoader) ... ok
+test_parse_from_vault_1_1_file (units.parsing.test_data_loader.TestDataLoaderWithVault) ... ok
+test_action_with_complex (units.parsing.test_mod_args.TestModArgsDwim) ... ok
+test_action_with_complex_and_complex_args (units.parsing.test_mod_args.TestModArgsDwim) ... ok
+test_basic_command (units.parsing.test_mod_args.TestModArgsDwim) ... ok
+test_basic_shell (units.parsing.test_mod_args.TestModArgsDwim) ... ok
+test_complex_args (units.parsing.test_mod_args.TestModArgsDwim) ... ok
+test_local_action_string (units.parsing.test_mod_args.TestModArgsDwim) ... ok
+test_multiple_actions (units.parsing.test_mod_args.TestModArgsDwim) ... ok
+test_normal_usage (units.parsing.test_mod_args.TestModArgsDwim) ... ok
+test_shell_with_modifiers (units.parsing.test_mod_args.TestModArgsDwim) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a', {u'_raw_params': u'a'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a=b', {u'a': u'b'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a="foo bar"', {u'a': u'foo bar'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'"foo bar baz"', {u'_raw_params': '"foo bar baz"'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'foo bar baz', {u'_raw_params': u'foo bar baz'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a=b c="foo bar"', {u'a': u'b', u'c': u'foo bar'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a="echo \\"hello world\\"" b=bar', {u'a': u'echo "hello world"', u'b': u'bar'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a="multi\nline"', {u'a': u'multi\nline'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a="blank\n\nline"', {u'a': u'blank\n\nline'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a="blank\n\n\nlines"', {u'a': u'blank\n\n\nlines'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a="a long\nmessage\\\nabout a thing\n"', {u'a': u'a long\nmessage\\\nabout a thing\n'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a="multiline\nmessage1\\\n" b="multiline\nmessage2\\\n"', {u'a': 'multiline\nmessage1\\\n', u'b': u'multiline\nmessage2\\\n'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a={{jinja}}', {u'a': u'{{jinja}}'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a={{ jinja }}', {u'a': u'{{ jinja }}'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a="{{jinja}}"', {u'a': u'{{jinja}}'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a={{ jinja }}{{jinja2}}', {u'a': u'{{ jinja }}{{jinja2}}'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a="{{ jinja }}{{jinja2}}"', {u'a': u'{{ jinja }}{{jinja2}}'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a={{jinja}} b={{jinja2}}', {u'a': u'{{jinja}}', u'b': u'{{jinja2}}'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a="{{jinja}}\n" b="{{jinja2}}\n"', {u'a': u'{{jinja}}\n', u'b': u'{{jinja2}}\n'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a="caf\xe9 e\xf1yei"', {u'a': u'caf\xe9 e\xf1yei'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_parse_kv(u'a=caf\xe9 b=e\xf1yei', {u'a': u'caf\xe9', u'b': u'e\xf1yei'}) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a', [u'a']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a=b', [u'a=b']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a="foo bar"', [u'a="foo bar"']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'"foo bar baz"', [u'"foo bar baz"']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'foo bar baz', [u'foo', u'bar', u'baz']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a=b c="foo bar"', [u'a=b', u'c="foo bar"']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a="echo \\"hello world\\"" b=bar', [u'a="echo \\"hello world\\""', u'b=bar']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a="multi\nline"', [u'a="multi\nline"']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a="blank\n\nline"', [u'a="blank\n\nline"']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a="blank\n\n\nlines"', [u'a="blank\n\n\nlines"']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a="a long\nmessage\\\nabout a thing\n"', [u'a="a long\nmessage\\\nabout a thing\n"']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a="multiline\nmessage1\\\n" b="multiline\nmessage2\\\n"', [u'a="multiline\nmessage1\\\n"', u'b="multiline\nmessage2\\\n"']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a={{jinja}}', [u'a={{jinja}}']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a={{ jinja }}', [u'a={{ jinja }}']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a="{{jinja}}"', [u'a="{{jinja}}"']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a={{ jinja }}{{jinja2}}', [u'a={{ jinja }}{{jinja2}}']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a="{{ jinja }}{{jinja2}}"', [u'a="{{ jinja }}{{jinja2}}"']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a={{jinja}} b={{jinja2}}', [u'a={{jinja}}', u'b={{jinja2}}']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a="{{jinja}}\n" b="{{jinja2}}\n"', [u'a="{{jinja}}\n"', u'b="{{jinja2}}\n"']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a="caf\xe9 e\xf1yei"', [u'a="caf\xe9 e\xf1yei"']) ... ok
+units.parsing.test_splitter.TestSplitter_Gen.test_split_args(u'a=caf\xe9 b=e\xf1yei', [u'a=caf\xe9', u'b=e\xf1yei']) ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u'1', u'1') ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u"'1'", u'1') ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u'"1"', u'1') ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u'"1 \'2\'"', u"1 '2'") ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u'\'1 "2"\'', u'1 "2"') ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u"'1 '2''", u"1 '2'") ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u'"1\\"', u'"1\\"') ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u"'1\\'", u"'1\\'") ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u'"1 \\"2\\" 3"', u'1 \\"2\\" 3') ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u"'1 \\'2\\' 3'", u"1 \\'2\\' 3") ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u'"', u'"') ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u"'", u"'") ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u'"1""2"', u'1""2') ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u"'1''2'", u"1''2") ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u'"1" 2 "3"', u'1" 2 "3') ... ok
+units.parsing.test_unquote.TestUnquote.test_unquote(u'"1"\'2\'"3"', u'1"\'2\'"3') ... ok
+test_eq (units.playbook.test_attribute.TestAttribute) ... ok
+test_ge (units.playbook.test_attribute.TestAttribute) ... ok
+test_gt (units.playbook.test_attribute.TestAttribute) ... ok
+test_le (units.playbook.test_attribute.TestAttribute) ... ok
+test_lt (units.playbook.test_attribute.TestAttribute) ... ok
+test_ne (units.playbook.test_attribute.TestAttribute) ... ok
+test_construct_block_with_role (units.playbook.test_block.TestBlock) ... ok
+test_construct_empty_block (units.playbook.test_block.TestBlock) ... ok
+test_load_block_simple (units.playbook.test_block.TestBlock) ... ok
+test_load_block_with_tasks (units.playbook.test_block.TestBlock) ... ok
+test_load_implicit_block (units.playbook.test_block.TestBlock) ... ok
+test_basic_play (units.playbook.test_play.TestPlay) ... [DEPRECATION WARNING]: Instead of sudo/sudo_user, use become/become_user and make sure become_method is 'sudo' (default).
+This feature will be removed in a future release. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ok
+test_empty_play (units.playbook.test_play.TestPlay) ... ok
+test_play_compile (units.playbook.test_play.TestPlay) ... ok
+test_play_with_handlers (units.playbook.test_play.TestPlay) ... ok
+test_play_with_post_tasks (units.playbook.test_play.TestPlay) ... ok
+test_play_with_pre_tasks (units.playbook.test_play.TestPlay) ... ok
+test_play_with_roles (units.playbook.test_play.TestPlay) ... ok
+test_play_with_tasks (units.playbook.test_play.TestPlay) ... ok
+test_play_with_user_conflict (units.playbook.test_play.TestPlay) ... ok
+test_play_context (units.playbook.test_play_context.TestPlayContext) ... ok
+test_play_context_make_become_cmd (units.playbook.test_play_context.TestPlayContext) ... ok
+test_bad_playbook_files (units.playbook.test_playbook.TestPlaybook) ... ok
+test_basic_playbook (units.playbook.test_playbook.TestPlaybook) ... ok
+test_empty_playbook (units.playbook.test_playbook.TestPlaybook) ... ok
+test_load_role_complex (units.playbook.test_role.TestRole) ... ok
+test_load_role_with_handlers (units.playbook.test_role.TestRole) ... ok
+test_load_role_with_metadata (units.playbook.test_role.TestRole) ... ok
+test_load_role_with_tasks (units.playbook.test_role.TestRole) ... ok
+test_load_role_with_vars (units.playbook.test_role.TestRole) ... ok
+test_evaluate_tags_accepts_lists (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_accepts_strings (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_all_in_only_tags (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_all_in_only_tags_and_special_all_in_skip_tags (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_all_in_skip_tags (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_all_in_skip_tags_and_always_in_object_tags (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_all_in_skip_tags_and_special_always_in_skip_tags_and_always_in_object_tags (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_always_in_object_tags (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_always_in_skip_tags_and_always_in_tags (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_tagged_in_only_tags_and_object_tagged (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_tagged_in_only_tags_and_object_untagged (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_tagged_in_skip_tags_and_object_tagged (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_tagged_in_skip_tags_and_object_untagged (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_untagged_in_only_tags_and_object_tagged (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_untagged_in_only_tags_and_object_untagged (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_untagged_in_skip_tags_and_object_tagged (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_special_untagged_in_skip_tags_and_object_untagged (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_tag_in_only_tags (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_tag_in_skip_tags (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_tag_in_skip_tags_special_always_in_object_tags (units.playbook.test_taggable.TestTaggable) ... ok
+test_evaluate_tags_with_repeated_tags (units.playbook.test_taggable.TestTaggable) ... ok
+test_can_load_module_complex_form (units.playbook.test_task.TestTask) ... ok
+test_construct_empty_task (units.playbook.test_task.TestTask) ... ok
+test_construct_task_with_block (units.playbook.test_task.TestTask) ... ok
+test_construct_task_with_role (units.playbook.test_task.TestTask) ... ok
+test_construct_task_with_role_and_block (units.playbook.test_task.TestTask) ... ok
+test_delegate_to_parses (units.playbook.test_task.TestTask) ... ok
+test_load_task_complex_form (units.playbook.test_task.TestTask) ... ok
+test_load_task_kv_form (units.playbook.test_task.TestTask) ... ok
+test_load_task_simple (units.playbook.test_task.TestTask) ... ok
+test_local_action_conflicts_with_delegate (units.playbook.test_task.TestTask) ... ok
+test_local_action_implies_delegate (units.playbook.test_task.TestTask) ... ok
+test_task_auto_name (units.playbook.test_task.TestTask) ... ok
+test_task_auto_name_with_role (units.playbook.test_task.TestTask) ... ok
+test_action_base__compute_environment_string (units.plugins.action.test_action.TestActionBase) ... ok
+test_action_base__configure_module (units.plugins.action.test_action.TestActionBase) ... ERROR
+test_action_base__early_needs_tmp_path (units.plugins.action.test_action.TestActionBase) ... ok
+test_action_base__execute_module (units.plugins.action.test_action.TestActionBase) ... ok
+test_action_base__execute_remote_stat (units.plugins.action.test_action.TestActionBase) ... ok
+test_action_base__late_needs_tmp_path (units.plugins.action.test_action.TestActionBase) ... ok
+test_action_base__make_tmp_path (units.plugins.action.test_action.TestActionBase) ... ok
+test_action_base__remove_tmp_path (units.plugins.action.test_action.TestActionBase) ... ok
+test_action_base__transfer_data (units.plugins.action.test_action.TestActionBase) ... ok
+test_action_base_run (units.plugins.action.test_action.TestActionBase) ... ok
+test_action_base_sudo_only_if_user_differs (units.plugins.action.test_action.TestActionBase) ... ok
+test_memcached_cachemodule (units.plugins.cache.test_cache.TestAbstractClass) ... ok
+test_memory_cachemodule (units.plugins.cache.test_cache.TestAbstractClass) ... ok
+test_redis_cachemodule (units.plugins.cache.test_cache.TestAbstractClass) ... SKIP: Redis python module not installed
+test_subclass_error (units.plugins.cache.test_cache.TestAbstractClass) ... ok
+test_subclass_success (units.plugins.cache.test_cache.TestAbstractClass) ... ok
+test_copy (units.plugins.cache.test_cache.TestFactCache) ... ok
+test_copy_deep (units.plugins.callback.test_callback.TestCopyResultExclude) ... ok
+test_copy_logic (units.plugins.callback.test_callback.TestCopyResultExclude) ... ok
+test_exclude (units.plugins.callback.test_callback.TestCopyResultExclude) ... ok
+test_no_exclude (units.plugins.callback.test_callback.TestCopyResultExclude) ... ok
+test_result_unmodified (units.plugins.callback.test_callback.TestCopyResultExclude) ... ok
+test_local_connection_module (units.plugins.connections.test_connection.TestConnectionBaseClass) ... ok
+test_paramiko_connection_module (units.plugins.connections.test_connection.TestConnectionBaseClass) ... ok
+test_ssh_connection_module (units.plugins.connections.test_connection.TestConnectionBaseClass) ... ok
+test_subclass_error (units.plugins.connections.test_connection.TestConnectionBaseClass) ... ok
+test_subclass_success (units.plugins.connections.test_connection.TestConnectionBaseClass) ... ok
+test_plugins_connection_ssh__build_command (units.plugins.connections.test_connection_ssh.TestConnectionBaseClass) ... ok
+test_plugins_connection_ssh__examine_output (units.plugins.connections.test_connection_ssh.TestConnectionBaseClass) ... ok
+test_plugins_connection_ssh__exec_command (units.plugins.connections.test_connection_ssh.TestConnectionBaseClass) ... ok
+test_plugins_connection_ssh__run (units.plugins.connections.test_connection_ssh.TestConnectionBaseClass) ... ok
+test_plugins_connection_ssh_basic (units.plugins.connections.test_connection_ssh.TestConnectionBaseClass) ... ok
+test_plugins_connection_ssh_exec_command (units.plugins.connections.test_connection_ssh.TestConnectionBaseClass) ... ok
+test_plugins_connection_ssh_fetch_file (units.plugins.connections.test_connection_ssh.TestConnectionBaseClass) ... ok
+test_plugins_connection_ssh_put_file (units.plugins.connections.test_connection_ssh.TestConnectionBaseClass) ... ok
+test_parse_parameters (units.plugins.lookup.test_password.TestPasswordLookup) ... ok
+test_strategy_base_get_hosts (units.plugins.strategies.test_strategy_base.TestStrategyBase) ... ok
+test_strategy_base_init (units.plugins.strategies.test_strategy_base.TestStrategyBase) ... ok
+test_strategy_base_load_included_file (units.plugins.strategies.test_strategy_base.TestStrategyBase) ... ok
+test_strategy_base_process_pending_results (units.plugins.strategies.test_strategy_base.TestStrategyBase) ... ok
+test_strategy_base_queue_task (units.plugins.strategies.test_strategy_base.TestStrategyBase) ... ok
+test_strategy_base_run (units.plugins.strategies.test_strategy_base.TestStrategyBase) ... ok
+test_strategy_base_run_handlers (units.plugins.strategies.test_strategy_base.TestStrategyBase) ... ok
+test_plugins__get_package_paths_no_package (units.plugins.test_plugins.TestErrors) ... ok
+test_plugins__get_package_paths_with_package (units.plugins.test_plugins.TestErrors) ... ok
+test_plugins__get_paths (units.plugins.test_plugins.TestErrors) ... ok
+test_print_paths (units.plugins.test_plugins.TestErrors) ... ok
+test_safe_eval_usage (units.template.test_safe_eval.TestSafeEval) ... ok
+test_set_literals (units.template.test_safe_eval.TestSafeEval) ... ok
+test_templar_escape_backslashes (units.template.test_templar.TestTemplar) ... ok
+test_templar_simple (units.template.test_templar.TestTemplar) ... [DEPRECATION WARNING]: Using bare variables is deprecated. Update your playbooks so that the environment value uses the full variable syntax ('{{foo}}').
+This feature will 
+be removed in a future release. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ok
+test_template_jinja2_extensions (units.template.test_templar.TestTemplar) ... ok
+test_backslash_escaping (units.template.test_template_utilities.TestBackslashEscape) ... ok
+test_all_newlines (units.template.test_template_utilities.TestCountNewlines) ... ok
+test_mostly_newlines (units.template.test_template_utilities.TestCountNewlines) ... ok
+test_multiple_newlines (units.template.test_template_utilities.TestCountNewlines) ... ok
+test_one_newline (units.template.test_template_utilities.TestCountNewlines) ... ok
+test_short_string (units.template.test_template_utilities.TestCountNewlines) ... ok
+test_zero_length_string (units.template.test_template_utilities.TestCountNewlines) ... ok
+test_zero_newlines (units.template.test_template_utilities.TestCountNewlines) ... ok
+test_comments (units.utils.test_shlex.TestSplit) ... ok
+test_error (units.utils.test_shlex.TestSplit) ... ok
+test_quoted (units.utils.test_shlex.TestSplit) ... ok
+test_trivial (units.utils.test_shlex.TestSplit) ... ok
+test_unicode (units.utils.test_shlex.TestSplit) ... ok
+test_combine_vars_merge (units.utils.test_vars.TestVariableUtils) ... ok
+test_combine_vars_replace (units.utils.test_vars.TestVariableUtils) ... ok
+test_improper_args (units.utils.test_vars.TestVariableUtils) ... ok
+test_merge_hash (units.utils.test_vars.TestVariableUtils) ... ok
+test_basic_manager (units.vars.test_variable_manager.TestVariableManager) ... ok
+test_variable_manager_extra_vars (units.vars.test_variable_manager.TestVariableManager) ... ok
+test_variable_manager_group_vars_file (units.vars.test_variable_manager.TestVariableManager) ... ok
+test_variable_manager_host_vars_file (units.vars.test_variable_manager.TestVariableManager) ... ok
+test_variable_manager_play_vars (units.vars.test_variable_manager.TestVariableManager) ... ok
+test_variable_manager_play_vars_files (units.vars.test_variable_manager.TestVariableManager) ... ok
+Tests complex variations and combinations of get_vars() with different ... ok
+test_variable_manager_task_vars (units.vars.test_variable_manager.TestVariableManager) ... ok
+
+======================================================================
+ERROR: Failure: AttributeError ('module' object has no attribute '__import__')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/nose/loader.py", line 418, in loadTestsFromName
+    addr.filename, addr.module)
+  File "/usr/lib/python2.7/site-packages/nose/importer.py", line 47, in importFromPath
+    return self.importFromDir(dir_path, fqname)
+  File "/usr/lib/python2.7/site-packages/nose/importer.py", line 94, in importFromDir
+    mod = load_module(part_fqname, fh, filename, desc)
+  File "/home/adrian/src/ansible/test/units/module_utils/test_basic.py", line 35, in <module>
+    realimport = builtins.__import__
+AttributeError: 'module' object has no attribute '__import__'
+
+======================================================================
+ERROR: test_action_base__configure_module (units.plugins.action.test_action.TestActionBase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/adrian/src/ansible/test/units/plugins/action/test_action.py", line 218, in test_action_base__configure_module
+    (style, shebang, data) = action_base._configure_module(mock_task.action, mock_task.args)
+  File "/home/adrian/src/ansible/lib/ansible/plugins/action/__init__.py", line 140, in _configure_module
+    (module_data, module_style, module_shebang) = modify_module(module_path, module_args, task_vars=task_vars)
+  File "/home/adrian/src/ansible/lib/ansible/executor/module_common.py", line 161, in modify_module
+    with open(module_path, 'rb') as f:
+IOError: [Errno 2] No such file or directory: '/fake/path/to/copy'
+
+Name                                         Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------------------------------------------
+ansible.py                                       4      0      0      0   100%   
+ansible/cli.py                                 332    159    136     25    44%   51-52, 75-79, 82-90, 99-107, 113-114, 117, 121-125, 134-157, 162-185, 189-199, 204-224, 228, 253, 261, 282-284, 334, 378, 387, 394, 397-398, 400-401, 419, 422-423, 440, 446, 456, 464, 472-482, 487-495, 500-506, 515-537, 543-550, 243->252, 252->253, 256->260, 260->261, 264->275, 275->281, 281->282, 287->310, 312->332, 332->342, 333->334, 342->345, 345->351, 351->359, 359->365, 372->374, 375->378, 385->387, 393->394, 399->400, 412->446, 418->419, 439->440, 455->456, 463->464
+ansible/compat.py                                3      0      0      0   100%   
+ansible/compat/six.py                           16      4      6      3    68%   32-33, 47, 52, 35->49, 39->47, 49->52
+ansible/constants.py                           215     10     40      6    92%   64-65, 77, 83, 92-94, 103-104, 106, 46->48, 63->64, 76->77, 78->83, 91->92, 99->106
+ansible/errors.py                               88     17     28      8    70%   82, 116, 119, 122, 127-142, 56->-47, 81->82, 103->149, 107->149, 115->116, 118->119, 121->122, 126->127
+ansible/errors/yaml_strings.py                  10      0      0      0   100%   
+ansible/executor.py                              2      0      0      0   100%   
+ansible/executor/module_common.py              103     15     44     14    79%   55, 69, 73, 76-77, 86-87, 96, 98, 100, 113, 117, 181, 194-195, 54->55, 68->69, 72->73, 74->76, 85->86, 95->96, 97->98, 99->100, 112->113, 116->117, 178->184, 180->181, 193->194, 197->203
+ansible/executor/play_iterator.py              372     81    188     29    75%   68-69, 98, 106, 159, 190-202, 208, 216-217, 226-227, 233-236, 241, 290-296, 313, 339, 360-362, 370, 391-393, 431-432, 439, 441, 444-458, 473-477, 479-483, 485, 487, 491-492, 513, 525-527, 536-538, 549, 558, 565-573, 97->98, 105->106, 158->159, 176->174, 189->190, 204->208, 225->226, 240->241, 285->290, 312->313, 338->339, 359->360, 369->370, 390->391, 420->424, 430->431, 433->444, 438->439, 440->441, 472->473, 478->479, 484->485, 486->487, 512->513, 524->525, 535->536, 548->549, 556->565, 557->558
+ansible/executor/playbook_executor.py          140     95     67      2    28%   58, 67-201, 248-256, 55->58, 234->233
+ansible/executor/process.py                      2      0      0      0   100%   
+ansible/executor/process/result.py             106     80     54      0    19%   35-36, 60-62, 65-85, 97-187
+ansible/executor/process/worker.py              76     34      6      1    52%   40-41, 83-90, 102-146, 80->-63
+ansible/executor/stats.py                       16      1      0      0    94%   44
+ansible/executor/task_executor.py              366    140    177     27    56%   117, 137, 146-147, 153-154, 170-172, 183-184, 188-190, 193, 199-202, 232-234, 340, 345-348, 358-361, 365, 373, 381-385, 394, 405-407, 425-426, 442, 447-530, 581-649, 656-678, 87->89, 110->113, 113->117, 136->137, 169->170, 176->198, 177->193, 179->183, 198->199, 204->209, 207->206, 274->281, 276->274, 282->312, 321->324, 339->340, 364->365, 372->373, 380->381, 388->394, 400->404, 404->405, 412->417, 421->498, 434->437, 437->454, 441->442
+ansible/executor/task_queue_manager.py         168     78     70      6    45%   79-80, 117-128, 137-174, 185-239, 256-257, 260, 285, 294, 297-313, 78->79, 248->-247, 284->285, 291->293, 293->294, 296->297
+ansible/executor/task_result.py                 34      0     16      0   100%   
+ansible/inventory.py                           400    132    200     48    61%   88-89, 92, 98-99, 113, 115-122, 127-128, 135, 150-156, 159-171, 182, 188, 190, 201-202, 206, 230-231, 269, 271, 278, 296, 300, 302, 347, 354-355, 372, 401, 443-449, 452-453, 457-464, 473-476, 485-486, 491-494, 515, 522-523, 532-535, 547, 554-555, 560-561, 575-578, 584-587, 590, 598-602, 611-624, 628, 638, 647, 654, 658-660, 662, 669, 673, 724, 736, 756-763, 96->101, 97->98, 112->113, 114->115, 125->127, 133->135, 181->182, 186->192, 187->188, 189->190, 198->208, 200->201, 205->206, 229->230, 268->269, 270->271, 272->267, 277->278, 295->296, 299->300, 301->302, 346->347, 349->358, 371->372, 400->401, 439->443, 451->452, 484->485, 490->491, 498->500, 507->509, 514->515, 521->522, 539->541, 546->547, 553->554, 559->560, 566->570, 637->638, 646->647, 653->654, 655->658, 661->662, 667->669, 681->-675, 721->724, 735->736, 746->726
+ansible/inventory/dir.py                       152    118     99      3    15%   49-52, 57-63, 69-74, 77, 85-185, 192-199, 202-210, 220-264, 270-286, 290-293, 56->57, 65->76, 76->77
+ansible/inventory/expand_hosts.py               45      8     24      6    74%   82, 90, 92, 94-97, 105, 65->-52, 81->82, 89->90, 91->92, 93->94, 104->105
+ansible/inventory/group.py                      92     21     28      5    75%   43, 46, 49, 52-63, 66-75, 78, 83, 108-109, 82->83, 86->-80, 97->100, 141->140, 145->144
+ansible/inventory/host.py                       77      9     15      4    86%   42, 54, 75-77, 88, 94, 101, 104, 41->42, 53->54, 74->75, 87->88
+ansible/inventory/ini.py                       138     27     61     15    77%   58-59, 65, 92, 103-104, 118, 126, 128, 167, 174-178, 199, 216, 236-237, 247, 257, 272-275, 281, 320-322, 55->58, 91->92, 102->103, 117->118, 127->128, 152->167, 155->159, 173->174, 196->199, 212->216, 246->247, 256->257, 280->281, 300->302, 312->323
+ansible/inventory/script.py                    100     83     51      0    11%   41-70, 74-147, 151-169
+ansible/module_utils.py                          0      0      0      0   100%   
+ansible/module_utils/basic.py                 1326    461    683     75    62%   80-82, 87-89, 94-96, 101-103, 107-110, 118-120, 124-126, 133-136, 144-146, 150-155, 181, 184-191, 223, 435, 481-490, 505, 547-551, 597, 765-768, 787-788, 792-797, 827-832, 858-863, 895, 902-907, 927-938, 999, 1044-1056, 1059, 1062, 1074-1100, 1114-1124, 1136, 1139-1145, 1153-1155, 1158, 1161, 1164, 1167, 1170, 1174, 1194-1197, 1206-1207, 1223-1231, 1239-1246, 1251-1279, 1286, 1289-1297, 1300-1342, 1348-1351, 1354-1360, 1363-1369, 1372-1373, 1376, 1390, 1397-1398, 1401-1402, 1420, 1430-1431, 1446, 1457, 1467-1469, 1477-1510, 1517, 1519-1531, 1541-1559, 1563-1572, 1579-1587, 1590, 1593-1594, 1598, 1628-1635, 1639-1661, 1674-1676, 1680, 1684, 1689-1701, 1704-1709, 1769, 1778-1782, 1784-1807, 1850-1851, 1856, 1881-1882, 1884-1886, 1888-1889, 1896, 1908-1910, 1912-1917, 1952-1956, 1997-2000, 2006-2010, 2014-2017, 2029-2032, 2035-2048, 143->144, 175->179, 179->181, 210->212, 212->215, 222->223, 227->229, 434->435, 458->498, 491->458, 570->573, 586->594, 596->597, 617->620, 631->634, 636->635, 665->667, 784->783, 785->787, 790->810, 791->792, 824->841, 826->827, 855->872, 857->858, 893->895, 899->945, 901->902, 926->927, 943->945, 979->981, 992->999, 1073->1074, 1134->1136, 1137->1139, 1152->1153, 1157->1158, 1160->1161, 1163->1164, 1166->1167, 1169->1170, 1173->1174, 1192->1194, 1205->1206, 1221->1223, 1237->1239, 1282->1286, 1345->1348, 1389->1390, 1419->1420, 1424->-1423, 1441->1445, 1445->1446, 1456->1457, 1516->1517, 1575->1587, 1597->1598, 1605->1607, 1617->1619, 1766->1769, 1777->1778, 1815->1818, 1849->1850, 1855->1856, 1880->1881, 1883->1884, 1887->1888, 1895->1896, 1907->1908, 1911->1912, 1951->1952, 1967->1969, 1974->1979, 1996->1997, 2013->2014
+ansible/module_utils/database.py                77     11     24      0    83%   57-58, 117-128
+ansible/module_utils/known_hosts.py            111     75     59      4    32%   34-35, 39-40, 48-60, 85-86, 95, 104, 112-159, 166-192, 83->85, 87->101, 92->101, 94->95
+ansible/modules.py                               2      0      0      0   100%   
+ansible/parsing.py                               2      0      0      0   100%   
+ansible/parsing/dataloader.py                  149     61     39     12    53%   85, 94-95, 107, 120-121, 124-125, 128-129, 132-133, 137-138, 149-150, 158, 161, 174-175, 212, 214, 228-268, 276-294, 80->85, 93->94, 106->107, 157->158, 160->161, 167->171, 167->174, 169->174, 187->191, 200->-197, 211->212, 213->214
+ansible/parsing/mod_args.py                    112     20     60      8    78%   140-149, 164, 172, 205, 244, 297-304, 306-311, 139->140, 163->164, 171->172, 201->205, 229->246, 236->244, 296->297, 305->306
+ansible/parsing/quoting.py                       8      0      2      0   100%   
+ansible/parsing/splitter.py                    120     17     58     11    83%   61-65, 77-81, 89, 132, 189-190, 219, 233-234, 239-240, 259, 58->100, 75->73, 88->89, 115->110, 131->132, 188->189, 213->219, 215->217, 232->233, 238->239, 258->259
+ansible/parsing/utils.py                         2      0      0      0   100%   
+ansible/parsing/utils/addresses.py              30      1     12      1    95%   213, 212->213
+ansible/parsing/utils/jsonify.py                16      4      4      0    80%   24-25, 39-40
+ansible/parsing/vault.py                       372    117     82     23    65%   40-41, 47-48, 54-55, 61-62, 71-72, 91, 131-132, 152, 166, 171, 184, 238-256, 274, 278-280, 284, 294, 299-302, 308-309, 320-324, 333-334, 345, 351-363, 367-375, 385-386, 401, 405-406, 418, 432-434, 440-441, 444-448, 453-463, 469-470, 473-477, 480-492, 509, 530, 556, 578, 599-607, 626, 680, 692-693, 709, 714, 90->91, 151->152, 162->166, 170->171, 183->184, 272->274, 282->284, 293->294, 307->308, 344->345, 400->401, 404->405, 417->418, 420->425, 431->432, 438->440, 508->509, 555->556, 577->578, 616->626, 679->680, 708->709, 713->714
+ansible/parsing/yaml.py                          2      0      0      0   100%   
+ansible/parsing/yaml/constructor.py             63      6      8      3    87%   51, 64-65, 69, 85, 96, 50->51, 68->69, 84->85
+ansible/parsing/yaml/dumper.py                  17      2      2      1    84%   36, 39, 38->39
+ansible/parsing/yaml/loader.py                  27     14      2      1    48%   25-26, 39-51, 32->39
+ansible/parsing/yaml/objects.py                 24      2      0      0    92%   41-42
+ansible/playbook.py                             53      7     18      3    83%   59, 73, 87-91, 97, 58->59, 72->73, 86->87
+ansible/playbook/attribute.py                   29      0      2      0   100%   
+ansible/playbook/base.py                       239     87    134      5    56%   120, 211-214, 248, 286-375, 411, 425-426, 432-447, 136->138, 247->248, 408->411, 424->425, 429->432
+ansible/playbook/become.py                      67     20     32      5    61%   40, 50-54, 56, 82-91, 98-102, 49->50, 55->56, 71->75, 75->79, 81->82
+ansible/playbook/block.py                      238     71    120     14    65%   71, 73, 119-120, 134-135, 149-150, 155, 157, 168-169, 190, 198-199, 209-223, 231-260, 263-277, 282, 284, 287, 291-292, 333, 340-341, 68->70, 70->71, 72->73, 154->155, 156->157, 167->168, 189->190, 197->198, 281->282, 283->284, 286->287, 290->291, 332->333, 373->370
+ansible/playbook/conditional.py                 54     40     26      1    19%   42-47, 51, 62-73, 82-117, 50->51
+ansible/playbook/handler.py                     23      4      2      0    76%   35, 44-45, 48
+ansible/playbook/helpers.py                     41      3     16      2    88%   56-58, 40->62, 55->56
+ansible/playbook/included_file.py               78     57     35      1    21%   36-39, 42-43, 46, 49, 56-59, 64-126, 63->64
+ansible/playbook/play.py                       176     53     44      4    67%   134-135, 150, 157, 168-169, 178-179, 188-189, 198-199, 208, 212-213, 221-239, 308, 314-320, 323-331, 334-346, 349-352, 130->134, 149->150, 156->157, 207->208
+ansible/playbook/play_context.py               239     58    134     21    69%   279, 284, 288, 290, 317-353, 363-364, 371, 375-378, 385-394, 398, 417, 463-464, 480-483, 515-525, 198->201, 271->277, 277->283, 278->279, 280->283, 283->284, 286->-248, 287->288, 289->290, 303->302, 313->317, 362->363, 370->371, 374->375, 381->385, 397->398, 404->407, 416->417, 479->480, 490->493, 493->497
+ansible/playbook/playbook_include.py            78     57     36      0    18%   42, 51-102, 110-131, 140-153
+ansible/playbook/role.py                       280     87    120     26    65%   46-49, 54, 58, 61, 109-113, 123-125, 127-129, 166, 180-181, 187-188, 195, 201, 221, 226, 258, 275, 282, 309, 314-315, 325, 347-348, 359-383, 386-416, 419-423, 45->46, 53->54, 55->61, 57->58, 103->105, 105->107, 108->109, 118->121, 122->123, 126->127, 165->166, 194->195, 200->201, 207->209, 220->221, 223->226, 224->223, 235->240, 249->-245, 257->258, 268->266, 274->275, 281->282, 313->314, 341->343, 346->347
+ansible/playbook/role/definition.py             94     13     32      6    82%   60, 66, 118, 123-126, 172-177, 198, 65->66, 117->118, 122->123, 145->151, 165->172, 196->198
+ansible/playbook/role/include.py                22      1      2      1    92%   54, 53->54
+ansible/playbook/role/metadata.py               40      5      6      2    85%   69, 78, 90, 96-97, 68->69, 72->75
+ansible/playbook/role/requirement.py           132    109     68      0    12%   57, 64-73, 87-120, 125-176, 180-225
+ansible/playbook/taggable.py                    56     11     34      2    79%   35, 38-47, 55, 73, 54->55, 70->73
+ansible/playbook/task.py                       247     88    115     23    57%   100-101, 107, 109, 117-128, 145-151, 174-175, 182-185, 197, 207, 214-217, 229-234, 241, 248, 255-273, 280, 287, 294, 301, 306, 308, 315, 317, 325, 333, 341, 344, 347, 359-362, 366-369, 374-377, 382-388, 402, 423, 106->107, 108->109, 181->182, 194->197, 206->207, 213->214, 298->300, 300->301, 305->306, 307->308, 314->315, 316->317, 324->325, 332->333, 340->341, 343->344, 346->347, 358->359, 365->366, 372->374, 399->401, 401->402, 420->423
+ansible/plugins.py                             210     27     94     14    85%   87-99, 106, 166-167, 217, 244-245, 259-260, 289-295, 320, 329, 333, 352, 357, 125->124, 165->166, 168->162, 205->-200, 206->208, 208->-200, 216->217, 285->297, 288->289, 319->320, 328->329, 332->333, 351->352, 356->357
+ansible/plugins/action.py                      359    108    188     24    66%   118, 135, 290-292, 330-344, 349-372, 386, 395, 475, 493, 506-514, 542-543, 562-564, 569-571, 584-603, 607-659, 100->104, 117->118, 132->135, 150->169, 203->206, 207->210, 383->388, 384->386, 394->395, 445->449, 459->461, 468->471, 474->475, 490->493, 518->521, 540->542, 551->554, 559->561, 561->562, 561->564, 566->568, 568->569, 568->571, 573->574
+ansible/plugins/cache.py                        41      9      4      1    78%   40-41, 52, 58, 61, 72, 75-77, 39->40
+ansible/plugins/cache/base.py                   25      7      0      0    72%   39, 43, 47, 51, 55, 59, 63
+ansible/plugins/cache/memcached.py             128     46     20      3    57%   32-34, 60-65, 78, 88-89, 117, 120, 123, 126-127, 130-131, 134-138, 145, 155, 158-160, 163-170, 173-174, 177-178, 181-182, 185-186, 189-190, 193, 196, 199, 59->60, 77->78, 144->145
+ansible/plugins/cache/memory.py                 24      5      0      0    79%   40, 43, 46, 49, 52
+ansible/plugins/callback.py                    232    137     67      3    34%   58, 63, 68-71, 89-102, 106-108, 112-164, 167-172, 176, 179-182, 185, 188, 191, 194, 197, 200, 203, 206, 209, 212, 215, 218, 221, 224, 227, 230, 233, 236, 239, 242, 245, 248, 252, 255-256, 259-260, 263-265, 268-269, 272, 275-279, 282-284, 287-289, 292, 295, 298-299, 302, 305, 308, 311, 314, 317, 320, 323-324, 327-328, 331, 334, 337-339, 342, 345, 348, 351, 354, 57->58, 62->63, 67->68
+ansible/plugins/connection.py                  110     34     30      8    61%   85, 87, 98, 103, 108-111, 122, 139-140, 145, 152-153, 232, 235-238, 241-246, 249-250, 253-254, 257-260, 263-265, 69->71, 71->74, 74->76, 76->79, 84->85, 86->87, 91->96, 97->98
+ansible/plugins/connection/local.py             82     57     20      0    25%   49, 57-62, 67-122, 127-137, 142-145, 149
+ansible/plugins/connection/paramiko_ssh.py     257    206     86      0    15%   71-72, 85-86, 90-114, 132, 135, 138-143, 146-188, 193-249, 254-317, 322-337, 341-346, 351-363, 367-372, 380-404, 409-462
+ansible/plugins/connection/ssh.py              322     71    154     37    76%   99, 125-129, 138, 143, 159, 165, 172, 188, 204-205, 221, 231, 242-250, 256-259, 334, 417-418, 424-428, 443-445, 448-450, 462-465, 467, 474-476, 478-481, 483-486, 490-493, 500-502, 520-529, 539, 543, 546, 98->99, 124->125, 137->138, 142->143, 144->150, 150->158, 158->159, 164->165, 171->172, 177->186, 187->188, 203->204, 212->230, 215->230, 220->221, 230->231, 338->345, 365->383, 415->417, 423->424, 432->434, 442->443, 447->448, 461->462, 466->467, 473->474, 477->478, 482->483, 487->490, 499->500, 507->527, 519->520, 537->541, 538->539, 542->543, 545->546, 588->616
+ansible/plugins/filter.py                        2      0      0      0   100%   
+ansible/plugins/lookup.py                       40     12     12      2    62%   44, 53, 60-64, 68-71, 103, 43->44, 52->53
+ansible/plugins/lookup/file.py                  25     10      4      1    55%   47-58, 38->58
+ansible/plugins/lookup/items.py                  6      0      0      0   100%   
+ansible/plugins/lookup/password.py              93     51     36      2    42%   60, 67, 96-102, 105-106, 110-165, 57->60, 66->67
+ansible/plugins/shell.py                        59     37     18      0    29%   41-43, 46, 50, 53, 56-57, 60-64, 67-81, 93-97, 101-109
+ansible/plugins/shell/sh.py                     22      6      0      0    73%   74-83
+ansible/plugins/strategy.py                    394    107    174     40    65%   171-174, 196, 212, 220, 248-250, 282-293, 306, 313, 318, 324, 328-331, 333, 335-336, 341, 344, 374, 388-401, 454, 469-480, 494, 496-500, 530-535, 540, 563-566, 589-590, 594-616, 625-644, 650-667, 157->162, 166->155, 195->196, 206->220, 208->212, 216->221, 229->239, 230->236, 236->239, 245->248, 271->274, 274->343, 278->282, 302->313, 305->306, 310->315, 315->318, 323->324, 325->343, 327->328, 332->333, 334->335, 343->344, 373->374, 387->388, 426->437, 437->441, 453->454, 468->469, 493->494, 495->496, 528->537, 537->519, 539->540, 555->558, 561->568, 569->578, 570->569, 574->569, 593->594
+ansible/plugins/vars.py                          2      0      0      0   100%   
+ansible/template.py                            288     66    126     12    73%   47-48, 144, 231-267, 293-298, 320, 341, 361, 367-370, 419-437, 448, 455, 459-465, 479, 484, 502-503, 141->144, 292->293, 319->320, 332->346, 337->346, 358->361, 391->394, 447->448, 452->455, 458->459, 481->484, 497->502
+ansible/template/safe_eval.py                   54     13     28      7    68%   87, 106, 108, 110-111, 118-120, 138-142, 78->86, 86->87, 105->106, 107->108, 109->110, 116->118, 136->138
+ansible/template/template.py                     7      0      0      0   100%   
+ansible/template/vars.py                        51     12     30      8    65%   51-53, 59, 61-62, 70, 72-73, 77, 85, 101, 50->51, 58->59, 60->61, 69->70, 71->72, 74->77, 84->85, 99->101
+ansible/utils.py                                 2      0      0      0   100%   
+ansible/utils/boolean.py                         7      0      2      0   100%   
+ansible/utils/color.py                          37     22     18      4    35%   26, 30-40, 43, 73, 81-84, 87-94, 25->26, 27->30, 42->43, 72->73
+ansible/utils/debug.py                          14      4      2      1    69%   15-18, 14->15
+ansible/utils/display.py                       221    103     94     24    47%   44-46, 62, 83-89, 97, 99, 102, 105, 130, 133, 141-145, 155, 158, 163, 172, 178, 182-184, 190-193, 199, 203, 208, 224, 231-232, 239-251, 254-268, 271-279, 283-292, 296-332, 341, 348, 54->65, 56->62, 82->83, 95->-93, 96->97, 98->99, 100->102, 103->105, 116->119, 119->147, 126->130, 132->133, 147->-107, 151->155, 157->158, 181->182, 189->190, 198->199, 201->208, 202->203, 213->-195, 219->224, 340->341, 345->348
+ansible/utils/encrypt.py                        85     52     20      1    32%   29, 44-45, 52-61, 63-64, 72-87, 93-122, 125, 128-131, 62->63
+ansible/utils/hashing.py                        50     35     10      0    25%   30-31, 36-41, 46-53, 58-71, 87-89, 92-94
+ansible/utils/listify.py                        14      2      4      2    78%   35, 40, 33->35, 39->40
+ansible/utils/path.py                           17      4      6      1    70%   42-45, 39->42
+ansible/utils/shlex.py                          10      1      2      1    83%   30, 28->30
+ansible/utils/unicode.py                        90     47     52     11    49%   41, 101-103, 108, 110, 114-115, 119-123, 125, 127-137, 213, 219-223, 225-228, 230, 232-246, 253, 283, 40->41, 99->101, 107->108, 109->110, 111->127, 124->125, 212->213, 216->232, 224->225, 229->230, 282->283
+ansible/utils/vars.py                           65     30     30      1    48%   51-52, 80, 99-112, 120-143, 79->80
+ansible/vars.py                                327     98    161     16    69%   32-33, 65, 73, 82-86, 102-112, 115-122, 160-171, 198-199, 259-260, 291-305, 336, 351-353, 407-419, 427, 434, 441, 454-466, 503-519, 574-582, 589-597, 603-609, 64->65, 72->73, 197->198, 276->282, 283->297, 287->290, 307->312, 333->336, 383->393, 406->407, 426->427, 431->434, 440->441, 453->454, 502->503, 531->534
+ansible/vars/hostvars.py                        52     28      6      0    41%   40-41, 50-54, 57, 60, 63, 66-79, 82, 85, 88, 91, 94-95, 98
+ansible/vars/unsafe_proxy.py                    45     12     20      3    65%   82-85, 89-93, 103-106, 113, 97->96, 112->113, 115->117
+----------------------------------------------------------------------------------------
+TOTAL                                        11572   4133   4839    684    59%   
+----------------------------------------------------------------------
+Ran 348 tests in 5.447s
+
+FAILED (SKIP=1, errors=2)
+Makefile:103: recipe for target 'tests' failed
+make: *** [tests] Error 1

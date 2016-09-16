@@ -1,0 +1,7 @@
+- name: test knowhosts
+  hosts: swoop
+  gather_facts: false
+  tasks:
+      - name: test_known_hosts
+        known_hosts: key="ssh-rsa sdfasdfadfsdf"  name="foo.example.com" state=present
+
