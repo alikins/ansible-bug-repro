@@ -7,9 +7,32 @@
           bar: ~
           baz: "{{ param2 }}"
   tasks:
+        - assert:
+            that:
+                - param2 == none
+                - param2 is none
+                - param2 is defined
+                - param2 != ""
+
         - debug: msg="{{ param2 }}"
         - debug: msg="{{ foo }}"
 
 # foo.bar should be null, but ends up as empty string
         - debug: msg="foo.bar should be |null| but is |{{ foo.bar }}|"
+
+        - assert:
+            that:
+                - foo.bar == none
+                - foo.bar is none
+                - foo.bar is defined
+                - foo.bar != ""
+
         - debug: msg="foo.baz should be |null| but is |{{ foo.baz }}|"
+
+        - assert:
+            that:
+                - foo.baz == none
+                - foo.baz is none
+                - foo.baz is defined
+                - foo.baz != ""
+

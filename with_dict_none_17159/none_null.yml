@@ -1,0 +1,46 @@
+- hosts: localhost
+  gather_facts: no
+  vars:
+        param2: ~
+        empty:
+        english_null: null
+        english_NULL: NULL
+
+  tasks:
+        - assert:
+            that:
+                - empty == none
+                - empty is none
+                - empty is defined
+                - empty == param2
+                - empty == english_null
+                - empty == english_NULL
+                - english_null == none
+                  # doesn't work
+                  # The conditional check 'empty == ' failed. The error was: template error while templating string: unexpected 'end of statement block'. String: {% if empty ==  %} True {% else %} False {% endif %}"}
+                  # - empty == {{ none }}
+        - assert:
+            that:
+                - param2 == none
+                - param2 is none
+                - param2 is defined
+                  # doesn't work, param2 is defined
+                  #- "param2 is not defined"
+                  # doesn't work
+                  # The conditional check 'param2 is null' failed. The error was: template error while templating string: no test named 'null'. String: {% if param2 is null %} True {% else %} False {% endif %}
+                  #- param2 is null
+                  #
+                  # doesn't work
+                  # "The conditional check 'param2 == null' failed. The error was: error while evaluating conditional (param2 == null): 'null' is undefined"
+                  #- param2 == null
+                  #
+                  # doesn't work
+                  # "The conditional check 'param2 == null' failed. The error was: error while evaluating conditional (param2 == null): 'null' is undefined"
+                  #- "param2 == null"
+                  #
+                  #doesnt work
+                  # The conditional check 'param2 == ~' failed. The error was: template error while templating string: unexpected '~'. String: {% if param2 == ~ %} True {% else %} False {% endif %}
+                  #- param2 == ~
+                  # doesn't work
+                  #
+                  #- param2 == {{ none }}

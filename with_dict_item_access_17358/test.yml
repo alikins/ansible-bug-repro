@@ -1,0 +1,41 @@
+- hosts: localhost
+  gather_facts: false
+
+  vars:
+    dict:
+      key: "{% raw %}{{ XXX }}{% endraw %}"
+
+  tasks:
+  - name: debug dict with_items
+    with_items: "{{ dict.keys() }}"
+    debug:
+      var: dict
+
+  - name: OK - XXX
+    with_items: "{{ dict.keys() }}"
+    debug:
+      var: dict[item]
+
+  - name: debug dict with_dict
+    with_dict: "{{ dict }}"
+    debug:
+      var: dict
+
+  - name: debug dict[item] with with_dict
+    with_dict: "{{ dict }}"
+    debug:
+      var: dict[item]
+
+  - name: debug dict[item.key] with_dict XXX
+    with_dict: "{{ dict }}"
+    debug:
+      var: dict[item.key]
+
+  - name: Inconsistent - bare - VARIABLE IS NOT DEFINED
+    with_dict: "{{ dict }}"
+    debug:
+      var: item.value
+
+  - name: Inconsistent - VARIABLE IS NOT DEFINED
+    with_dict: "{{ dict }}"
+    debug: var=item.value

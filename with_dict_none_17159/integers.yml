@@ -1,20 +1,32 @@
 - hosts: localhost
   gather_facts: no
   vars:
-        param2: 7
+        param2_6_int: 6
 
         foo:
-          bar: "7"
-          baz: 7
+          bar_7_string: "7"
+          baz_8_int: 8
   tasks:
-      - name: debug param2 should be int 7
-        debug: msg="{{ param2 }}"
+      - name: debug param2 should be int 6
+        debug: msg="{{ param2_6_int }}"
+
       - name: debug param2 or default
-        debug: msg="{{ param2 | default('test') }}"
+        debug: msg="{{ param2_6_int | default('test') }}"
+
       - name: debug foo
         debug: msg="{{ foo }}"
-      - name: debug foo.bar
-        debug: msg="{{ foo.bar }}"
-      - name: debug foo.baz should be int 7 not string
-        debug: msg="{{ foo.baz }}"
+
+      - name: debug foo.bar_7_string
+        debug: msg="{{ foo.bar_7_string }}"
+
+      - name: assert foo.baz_8_int is an int
+        assert:
+            that:
+                - foo.baz_8_int == 8
+                - foo.bar_7_string == "7"
+                - foo.bar_7_string != 7
+                - foo.baz_8_int != "8"
+
+      - name: debug foo.baz_8_int_i should be int 8 not string
+        debug: msg="{{ foo.baz_8_int }}"
 

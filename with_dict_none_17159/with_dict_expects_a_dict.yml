@@ -1,0 +1,52 @@
+---
+- hosts: localhost
+  vars:
+    localhost:
+        name:
+            firstname: "MyFirstName1"
+            lastname: "MyLastName"
+    someusers:
+        alice:
+            name: Alice Appleworth
+            telephone: 123-456-7890
+        bob:
+            name: Bob Bananarama
+            telephone: 987-654-3210
+    #servername2:
+    #    name:
+    #        firstname : MyFirstName2
+    #        lastname : MyLastName2
+
+  tasks:
+      - name: debug localhost
+        debug: var="{{ localhost }}"
+
+      - name: debug users
+        debug: var="{{ someusers }}"
+
+      - name: debug inventory_hostname_short.name
+        debug: var="{{ inventory_hostname_short }}.name"
+
+      - name: debug inventory_hostname_short
+        debug: var="{{ inventory_hostname_short }}"
+
+      - name: debug inventory_hostname
+        debug: var="{{ inventory_hostname }}"
+
+      - name: debug inventory_hostname.name
+        debug: var="{{ inventory_hostname }}.name"
+
+      - name: debug var=item inventory_hostname
+        debug: var="{{ item }}"
+        with_dict: "{{ inventory_hostname }}"
+
+      - name: debug var=item inventory_hostname.name
+        debug: var="{{ item }}"
+        with_dict: "{{ inventory_hostname_short }}.name"
+
+      - name: debug show item
+        debug: msg="item {{ item }}"
+        with_dict: "{{ inventory_hostname_short }}.name"
+
+      - debug: msg="key {{item.key}} , val {{item.value}}"
+        with_dict: "{{ inventory_hostname_short }}.name"
