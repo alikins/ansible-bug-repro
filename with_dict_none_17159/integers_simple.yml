@@ -1,0 +1,28 @@
+- hosts: localhost
+  gather_facts: no
+  vars:
+
+        foo_dict:
+          baz_8_int: 8
+  tasks:
+      - name: debug foo_dict (msg)
+        debug: msg="{{ foo_dict }}"
+
+      - name: debug var=foo_dict shows foo_dict.baz_8_int as an int
+        debug: var=foo_dict
+
+      - name: debug var=foo_dict.baz_8_int_i should be int 8 but is a string "8" (var)
+        debug: var=foo_dict.baz_8_int
+
+      - name: debug msg=foo_dict.baz_8_int_i should be int 8 but is a string "8" (msg)
+        debug: msg="{{ foo_dict.baz_8_int }}"
+
+      - name: debug var=\{\{ foo_dict.baz_8_int \}\} should be int 8 but is a string "8" (var2)
+        debug: var={{ foo_dict.baz_8_int }}
+
+      - name: assert foo_dict.baz_8_int is an int 8 and not a string "8"
+        assert:
+            that:
+                - foo_dict.baz_8_int == 8
+                - foo_dict.baz_8_int != "8"
+
