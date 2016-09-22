@@ -39,3 +39,11 @@
   - name: Inconsistent - VARIABLE IS NOT DEFINED
     with_dict: "{{ dict }}"
     debug: var=item.value
+
+  - name: debug item msg
+    with_dict: "{{ dict }}"
+    debug: msg="{{ dict }}"
+
+  - name: debug item.value msg
+    with_dict: "{{ dict }}"
+    debug: msg="{{ item.value }}"

@@ -5,8 +5,12 @@
         empty:
         english_null: null
         english_NULL: NULL
+        yaml_null: !!null
 
   tasks:
+        - name: debug the vars
+          debug: msg="param2 {{ param2 }} empty {{ empty }} yaml_null {{ yaml_null }}"
+
         - assert:
             that:
                 - empty == none
@@ -16,9 +20,19 @@
                 - empty == english_null
                 - empty == english_NULL
                 - english_null == none
+                - english_null is none
+                - empty == yaml_null
+                - english_null == yaml_null
+                - yaml_null == none
+                - param2 == yaml_null
+                - yaml_null is none
+
                   # doesn't work
                   # The conditional check 'empty == ' failed. The error was: template error while templating string: unexpected 'end of statement block'. String: {% if empty ==  %} True {% else %} False {% endif %}"}
                   # - empty == {{ none }}
+                  #- english_null == yaml_null
+                  # doesn't work
+                  # The conditional check 'english_null is yaml_null' failed. The error was: template error while templating string: no test named 'yaml_null'. String: {% if english_null is yaml_null %} True {% else %} False {% endif %}"}
         - assert:
             that:
                 - param2 == none

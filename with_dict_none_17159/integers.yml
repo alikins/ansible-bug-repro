@@ -7,17 +7,26 @@
           bar_7_string: "7"
           baz_8_int: 8
   tasks:
-      - name: debug param2 should be int 6
+      - name: debug param2 should be int 6 (msg)
         debug: msg="{{ param2_6_int }}"
+
+      - name: debug param2 should be int 6 (var)
+        debug: var=param2_6_int
 
       - name: debug param2 or default
         debug: msg="{{ param2_6_int | default('test') }}"
 
-      - name: debug foo
+      - name: debug foo (msg)
         debug: msg="{{ foo }}"
+
+      - name: debug foo (var)
+        debug: var=foo
 
       - name: debug foo.bar_7_string
         debug: msg="{{ foo.bar_7_string }}"
+
+      - name: debug foo.bar_7_string (var)
+        debug: var=foo.bar_7_string
 
       - name: assert foo.baz_8_int is an int
         assert:
@@ -27,6 +36,12 @@
                 - foo.bar_7_string != 7
                 - foo.baz_8_int != "8"
 
-      - name: debug foo.baz_8_int_i should be int 8 not string
+      - name: debug foo.baz_8_int_i should be int 8 not string (msg)
         debug: msg="{{ foo.baz_8_int }}"
+
+      - name: debug foo.baz_8_int_i should be int 8 not string (var)
+        debug: var=foo.baz_8_int
+
+      - name: debug foo.baz_8_int_i should be int 8 not string (var2)
+        debug: var={{ foo.baz_8_int }}
 
