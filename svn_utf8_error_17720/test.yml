@@ -1,0 +1,23 @@
+- hosts: localhost
+  gather_facts: False
+  vars:
+      #svn_base: http://svn.code.sf.net/p/
+      svn_base: svn+ssh://alikins@svn.code.sf.net/p/
+      #svn_base: https://svn.code.sf.net/p/
+      svn:
+          - a-svn-test-repo/code/
+      svn_user: alikins
+      # svn_pass: {{ svn_password }}
+      svn_dest: "/tmp/svn_utf8_error_17720/"
+  tasks:
+      - name: ensure the dest checkout doesn't exist
+        file: path="{{ svn_dest }}" state=absent
+
+      - name: SVN checkout
+        subversion: repo="{{ svn_base }}/{{ item }}" dest="{{ svn_dest }}/{{ item }}"
+        environment:
+            - LC_ALL: en_US.UTF-8
+            - LC_CTYPE: en_US.UTF-8
+        with_items: '{{ svn }}'
+        tags: [blabla]
+
