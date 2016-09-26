@@ -20,9 +20,16 @@
       - name: debug var=\{\{ foo_dict.baz_8_int \}\} should be int 8 but is a string "8" (var2)
         debug: var={{ foo_dict.baz_8_int }}
 
+      - name: debug showing foo_dict and foo_dict.baz_8_int access at same time
+        debug: msg="foo_dict {{ foo_dict }}  foo_dict.baz_8_int {{ foo_dict.baz_8_int }}"
+
       - name: assert foo_dict.baz_8_int is an int 8 and not a string "8"
         assert:
             that:
                 - foo_dict.baz_8_int == 8
                 - foo_dict.baz_8_int != "8"
 
+  #      - name: assert dict compare
+  #      assert:
+  #          that:
+  #              - foo_dict == {baz_8_int: 8}
