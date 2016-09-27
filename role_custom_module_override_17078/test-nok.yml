@@ -1,0 +1,10 @@
+---
+- hosts: nonexistent
+  tasks:
+  - name:
+    debug:
+
+- hosts: localhost
+  gather_facts: false
+  roles:
+    - role: joeri
