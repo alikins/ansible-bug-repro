@@ -1,0 +1,10 @@
+- name: play1
+  hosts: all
+  gather_facts: no
+  tasks:
+  - test_bug:
+- name: play2
+  hosts: all
+  gather_facts: yes
+  tasks:
+  - debug: msg='{{ ansible_virtualization_type }}'

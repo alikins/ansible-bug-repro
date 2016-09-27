@@ -1,0 +1,4 @@
+localhost ansible_connection=local
+#adrian@swoop ansible_host=192.168.1.120 ansible_user=adrian
+#grimlock ansible_host=192.168.1.36 ansible_user=adrian
+

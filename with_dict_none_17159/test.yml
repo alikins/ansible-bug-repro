@@ -15,6 +15,19 @@
                 - param2 != ""
 
         - debug: msg="{{ param2 }}"
+
+        - name: debug param2 with a default
+          debug: msg="{{ param2|default('blippy') }}"
+
+        - name: debug param2 with a default(true)
+          debug: msg="{{ param2|default('blippy', true) }}"
+
+        - name: debug none(param2)
+          debug: msg="{% if param2 is none %}test{% else %} {{ param }} {% endif %}"
+
+        - name: debug param3 not defined
+          debug: msg="{{ param3|default('the_param3_default') }}"
+
         - debug: msg="{{ foo }}"
 
 # foo.bar should be null, but ends up as empty string
