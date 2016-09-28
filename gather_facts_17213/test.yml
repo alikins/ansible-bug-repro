@@ -2,9 +2,19 @@
   hosts: all
   gather_facts: no
   tasks:
-  - test_bug:
+      - name: test custom facts
+        test_bug:
+      - name: assert setup did not run
+        assert:
+            that: '"{{ ansible_interfaces|default("UNDEF_NET") }}" == "UNDEF_NET"'
+
 - name: play2
   hosts: all
   gather_facts: yes
   tasks:
-  - debug: msg='{{ ansible_virtualization_type }}'
+      - name: debug setup
+        debug: msg="{{ ansible_virtualization_type }}"
+
+      - name: assert setup did run
+        assert:
+            that: '"{{ ansible_interfaces|default("UNDEF_NET") }}" != "UNDEF_NET"'
