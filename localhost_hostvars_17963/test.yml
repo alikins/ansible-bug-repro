@@ -1,0 +1,11 @@
+---
+- hosts: 127.0.0.1
+  tasks:
+    # Dummy play
+
+- hosts: localhost
+  tasks:
+     - set_fact: var1=100
+     - debug: var=var1
+     - debug: var=hostvars['localhost']['var1']
+

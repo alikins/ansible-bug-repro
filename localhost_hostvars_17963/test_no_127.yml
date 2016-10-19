@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+     - set_fact: var1=100
+     - debug: var=var1
+     - debug: var=hostvars['localhost']['var1']
+
