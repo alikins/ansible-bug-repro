@@ -1,0 +1,9 @@
+- hosts: localhost
+  gather_facts: no
+  tasks:
+      - set_fact:
+          xxx: >
+                {{ 1 == 1
+                }}
+      - debug: var=xxx
+      - debug: msg="{{ xxx }}"
