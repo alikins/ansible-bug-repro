@@ -5,5 +5,16 @@
           xxx: >
                 {{ 1 == 1
                 }}
+          xx: |
+              {{ 1 == 1
+              }}
+          yyy: >
+              this is some stuff on a single line
+          zzz: |
+              this is some stuff on a single line that would include newlines
       - debug: var=xxx
       - debug: msg="{{ xxx }}"
+      - debug: msg="{{ xx }}"
+      - debug: msg="{{ yyy }}"
+      - debug: msg="{{ zzz }}"
+
