@@ -1,0 +1,33 @@
+- hosts: localhost
+  gather_facts: no
+  vars:
+
+        foo_dict:
+            baz_false_bool: false
+            baz_true_bool: true
+  tasks:
+      - name: debug foo_dict (msg)
+        debug: msg="{{ foo_dict }}"
+
+      - name: debug var=foo_dict shows foo_dict.baz_8ish_float as an int
+        debug: var=foo_dict
+
+      - name: debug var=foo_dict.baz_8ish_float should be int 8 but is a string "8" (var)
+        debug: var=foo_dict.baz_false_bool
+
+      - name: debug msg=foo_dict.baz_8ish_float should be int 8 but is a string "8" (msg)
+        debug: msg="{{ foo_dict.baz_false_bool }}"
+
+      - name: debug var=\{\{ foo_dict.baz_false_bool \}\} should be int 8 but is a string "8" (var2)
+        debug: var={{ foo_dict.baz_false_bool }}
+
+      - name: debug showing foo_dict and foo_dict.baz_8ish_float access at same time
+        debug: msg="foo_dict {{ foo_dict }}  foo_dict.baz_false_bool {{ foo_dict.baz_false_bool }}"
+
+      - name: assert foo_dict.baz_8ish_float is an int 8 and not a string "8"
+        assert:
+            that:
+                - foo_dict.baz_false_bool == false
+                - foo_dict.baz_false_bool != "false"
+                - foo_dict.baz_false_bool != true
+

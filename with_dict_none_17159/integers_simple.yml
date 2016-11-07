@@ -1,7 +1,8 @@
 - hosts: localhost
   gather_facts: no
   vars:
-
+        some_int_7: 7
+        some_other_int_7: "{{ some_int_7 }}"
         foo_dict:
           baz_8_int: 8
   tasks:
@@ -28,6 +29,30 @@
             that:
                 - foo_dict.baz_8_int == 8
                 - foo_dict.baz_8_int != "8"
+
+      - name: debug some_int_7
+        debug: var=some_int_7
+
+      - name: debug msg some_int_7
+        debug: msg="{{ some_int_7 }}"
+
+      - name: debug some_other_int_7
+        debug: var=some_other_int_7
+
+      - name: debug msg some_other_int_7
+        debug: msg="{{ some_other_int_7 }}"
+
+      - name: assert some_int_7 is an int 7 and not a string "7"
+        assert:
+            that:
+                - some_int_7 == 7
+
+      - name: assert some_other_int_7 is an int 7 and not a string "7"
+        assert:
+            that:
+                - some_other_int_7 == 7
+
+
 
   #      - name: assert dict compare
   #      assert:

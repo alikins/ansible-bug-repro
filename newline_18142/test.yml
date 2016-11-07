@@ -12,9 +12,15 @@
               this is some stuff on a single line
           zzz: |
               this is some stuff on a single line that would include newlines
+          aaa: Foo some string
+          nnn: "Foo some string"
+          ooo: "Foo some string\n"
       - debug: var=xxx
       - debug: msg="{{ xxx }}"
       - debug: msg="{{ xx }}"
       - debug: msg="{{ yyy }}"
       - debug: msg="{{ zzz }}"
+      - debug: msg="{{ aaa }}"
+      - debug: msg="{{ nnn }}"
+      - debug: msg="{{ ooo }}"
 

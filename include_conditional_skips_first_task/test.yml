@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - set_fact:
+        my_var: False
+
+- include: included.yml
+  when: hostvars['localhost']['my_var']
+ #when: swift.enabled|default('False')|bool

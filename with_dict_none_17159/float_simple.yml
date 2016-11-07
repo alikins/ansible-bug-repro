@@ -1,0 +1,31 @@
+- hosts: localhost
+  gather_facts: no
+  vars:
+
+        foo_dict:
+          baz_8ish_float: 8.1003
+  tasks:
+      - name: debug foo_dict (msg)
+        debug: msg="{{ foo_dict }}"
+
+      - name: debug var=foo_dict shows foo_dict.baz_8ish_float as an int
+        debug: var=foo_dict
+
+      - name: debug var=foo_dict.baz_8ish_float should be int 8 but is a string "8" (var)
+        debug: var=foo_dict.baz_8ish_float
+
+      - name: debug msg=foo_dict.baz_8ish_float should be int 8 but is a string "8" (msg)
+        debug: msg="{{ foo_dict.baz_8ish_float }}"
+
+      - name: debug var=\{\{ foo_dict.baz_8ish_float \}\} should be int 8 but is a string "8" (var2)
+        debug: var={{ foo_dict.baz_8ish_float }}
+
+      - name: debug showing foo_dict and foo_dict.baz_8ish_float access at same time
+        debug: msg="foo_dict {{ foo_dict }}  foo_dict.baz_8ish_float {{ foo_dict.baz_8ish_float }}"
+
+      - name: assert foo_dict.baz_8ish_float is an int 8 and not a string "8"
+        assert:
+            that:
+                - foo_dict.baz_8ish_float == 8.1003
+                - foo_dict.baz_8ish_float != "8.1003"
+

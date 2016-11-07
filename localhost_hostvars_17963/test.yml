@@ -1,11 +1,15 @@
 ---
 - hosts: 127.0.0.1
+  gather_facts: True
   tasks:
+     - debug: var=hostvars
     # Dummy play
 
 - hosts: localhost
   tasks:
+     - debug: var=hostvars
      - set_fact: var1=100
      - debug: var=var1
+     - debug: var=hostvars
      - debug: var=hostvars['localhost']['var1']
 

@@ -1,0 +1,31 @@
+- name: test ansible callback for the copy module
+  hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: copy initial
+    copy:
+      content: "testing"
+      dest: "/tmp/test"
+
+  - name: copy with force (module default)
+    copy:
+      content: "testing"
+      dest: "/tmp/test"
+
+  - name: copy with force (module default) dest doesnt exist
+    copy:
+      content: "testing"
+      dest: "/tmp/test2"
+
+  - name: copy without force no dest exists
+    copy:
+      content: "testing"
+      dest: "/tmp/test3"
+      force: no
+
+  - name: copy without force
+    copy:
+      content: "testing"
+      dest: "/tmp/test"
+      force: no
+

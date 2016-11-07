@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  tasks:
+    - name: This works
+      debug: msg="{{ lookup('ini', 'KeyName section=SectionName file=filename.ini') }}"
+
+    - name: This should work, but doesn't
+      debug: msg="{{ lookup('ini', 'KeyName section=SectionName file=filename.ini default=XXX') }}"
+
+    - name: This doesn't work either
+      debug: msg="{{ lookup('ini', 'NonExistentKey section=SectionName file=filename.ini default=XXX') }}"
+
+    - name: We don't expect this to work
+      debug: msg="{{ lookup('ini', 'NonExistentKey section=SectionName file=filename.ini') }}"

@@ -1,0 +1,11 @@
+- name: the first play in the included playbook
+  hosts: localhost
+  tasks:
+  - name: the first task in the first play in the included playbook
+    shell: echo step 1
+
+  - name: the second task in the first play in the included playbook
+    shell: echo step 2
+
+  - name: the third task in the first play in the included playbook
+    shell: echo step 3
