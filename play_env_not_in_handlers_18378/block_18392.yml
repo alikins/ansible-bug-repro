@@ -1,0 +1,100 @@
+
+- hosts: localhost
+  vars:
+    env:
+      test: 123456
+    env2:
+        pauly: shore
+        test: 999999999
+    env3:
+       blippy: abcdefghi
+  handlers:
+    - name: debug handler env
+      debug: var=environment
+    #  register: environment
+    - name: debug handler env 2
+      debug: var=environment
+      #  register: environment
+    - name: debug handler env block
+      debug: var=environment
+      #register: environment
+    - name: debug handler env block 2
+      debug: var=environment
+      #  register: environment
+  tasks:
+      #- shell: env
+      #environment: "{{ env }}"
+
+    - name: debug env
+      debug: var=environment
+
+    - name: debug env no block
+      debug: var=environment
+      environment: "{{ env }}"
+
+
+      #    - block:
+      #  - name: shell env in a block
+      #    shell: env
+      #environment: "{{ env }}"
+
+    - block:
+        - name: block debug
+          debug: var=environment
+      environment: "{{ env }}"
+
+    - block:
+        - include: env_inc.yml
+      environment: "{{ env }}"
+
+    - block:
+        - name: block debug task level environment
+          debug: var=environment
+          environment: "{{ env }}"
+
+    - block:
+        - name: block debug task level nested env
+          debug: var=environment
+          environment: "{{ env }}"
+      environment: "{{ env2 }}"
+
+
+    - block:
+        - block:
+            - name: block debug task level nested env 3 levels
+              debug: var=environment
+              environment: "{{ env }}"
+
+            - name: block debug show test
+              debug: var=environment['test']
+              environment: "{{ env }}"
+          environment: "{{ env2 }}"
+      environment: "{{ env3 }}"
+
+    - name: task print env no block trigger handler
+      changed_when: true
+      notify: debug handler env
+      debug: var=environment
+
+    - name: task print env no block with environment
+      changed_when: true
+      notify: debug handler env 2
+      debug: var=environment
+      environment: "{{ env }}"
+
+    - block:
+      - name: task print env trigger handler with block no env
+        changed_when: true
+        notify: debug handler env block
+        debug: var=environment
+
+    - block:
+        - name: task print env with block with environment
+          changed_when: true
+          notify: debug handler env block 2
+          debug: var=environment
+          environment: "{{ env }}"
+
+
+
+
