@@ -1,0 +1,13 @@
+- hosts: localhost
+  gather_facts: no
+
+  pre_tasks:
+  - stat:
+      path: "{{ item }}"
+    with_fileglob:
+      - "foo*"
+    delegate_to: localhost
+    register: blip
+
+  #  tasks:
+  #  - debug: var=blip
