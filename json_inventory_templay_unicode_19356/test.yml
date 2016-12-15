@@ -1,0 +1,22 @@
+---
+- hosts: nginx
+  gather_facts: False
+  vars:
+      #    nginx_upstream_check_upstreams:
+      #yAuthAPI:
+      #  enable: true
+      #  http_send: 'GET / HTTP/1.0\r\n\r\n'
+      #  expect_alive: "http_2xx"
+
+      #yAuthServer:
+      #  enable: true
+      #  http_send: 'GET / HTTP/1.0\r\n\r\n'
+      #  expect_alive: "http_2xx"
+    nginx_backends:
+        - yAuthAPI
+  tasks:
+    - debug: var=nginx_upstream_check_upstreams
+    - debug: var=nginx_backends
+    - template:
+        src: templates/test2.j2
+        dest: /tmp/template_out.txt

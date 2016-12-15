@@ -1,0 +1,16 @@
+{% for backend in nginx_backends %}
+upstream {{ backend }} {
+    ip_hash;
+{% for host in nginx_backends[backend] %}
+    server {{ host }};
+{% endfor %}
+
+{% if nginx_upstream_check_enable %}
+{% if nginx_upstream_check_upstreams[backend].enable %}
+    check interval=5000 rise=1 fall=3 timeout=4000 type=http;
+    check_http_send "{{ nginx_upstream_check_upstreams[backend].http_send }}";
+    check_http_expect_alive {{ nginx_upstream_check_upstreams[backend].expect_alive }};
+{% endif %}
+{% endif %}
+}
+{% endfor %}

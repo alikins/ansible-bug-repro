@@ -1,0 +1,17 @@
+nginx_upstream_check_upstreams:
+  yAuthAPI:
+    enable: true
+    http_send: 'GET / HTTP/1.0\r\n\r\n'
+    expect_alive: "http_2xx"
+
+  yAuthServer:
+    enable: true
+    http_send: 'GET / HTTP/1.0\r\n\r\n'
+    expect_alive: "http_2xx"
+nginx_backends:
+  yAuthAPI:
+    - 127.0.0.1
+    - 127.0.0.2
+  yAuthServer:
+    - 127.0.0.3
+    - 127.0.0.4
