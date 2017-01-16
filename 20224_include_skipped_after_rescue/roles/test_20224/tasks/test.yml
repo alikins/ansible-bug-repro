@@ -1,0 +1,7 @@
+---
+- name: "Include test included from test_20224 role"
+  debug: msg="Included task  (test_20224)"
+
+- name: set a fact indicating we got here
+  set_fact:
+    got_here_2: "Yup got here 2"

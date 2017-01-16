@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  roles:
+      - test_20224
+  tasks:
+    - name: debug
+      debug: msg="nothing"
+
+    - name: debug showing the got_here_1 fact we set in test.yml
+      debug:
+        var: got_here_1
+
+    - name: debug showing the got_here_2 fact we set in test.yml
+      debug:
+        var: got_here_2

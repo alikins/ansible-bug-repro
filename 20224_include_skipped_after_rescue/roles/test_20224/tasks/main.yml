@@ -1,0 +1,14 @@
+---
+- name: set a fact indicating we got here
+  set_fact:
+    got_here_1: "Yup got here 1"
+- block:
+  - name: Block test
+    debug: msg="Normal block"
+    failed_when: True
+  rescue:
+    - name: Rescue test
+      debug: msg="Rescued"
+
+- include: test.yml
+
