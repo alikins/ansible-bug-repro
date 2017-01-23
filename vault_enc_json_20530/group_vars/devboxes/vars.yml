@@ -1,0 +1,6 @@
+
+devboxes_gce_project_id: project_id
+devboxes_gce_service_account_email: account_email
+devboxes_gce_credentials_file: "{{ playbook_dir }}/group_vars/devboxes/credentials.json"
+
+devboxes_not_encrypted_credentials_file: "{{ playbook_dir }}/group_vars/devboxes/not_encrypted_credentials.json"

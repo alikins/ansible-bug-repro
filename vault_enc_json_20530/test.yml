@@ -1,0 +1,31 @@
+# create_vm.yml playbook
+- hosts: localhost
+  connection: local
+  vars_files:
+    - "group_vars/devboxes/vars.yml"
+  gather_facts: False
+  tasks:
+    - name: "debug vaulted json files credentials_file"
+      debug:
+        var: devboxes_gce_credentials_file
+
+    - name: "copy creds file to /tmp"
+      copy:
+          dest: /tmp/vault_enc_json_20530_credentials_file
+          src: "{{ devboxes_gce_credentials_file }}"
+
+    - name: "debug not_encrytped_credentials json"
+      debug:
+         var: devboxes_not_encrypted_credentials_file
+
+        #    gce:
+        #instance_names: my-test-instance1
+        # zone: us-central1-a
+        #machine_type: g1-small
+        #image: debian-8
+        #state: present
+        #service_account_email: "{{ gce_service_account_email }}"
+        #credentials_file: "{{ gce_credentials_file }}"
+        #project_id: "{{ gce_project_id }}"
+        #register: gce
+
