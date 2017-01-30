@@ -1,0 +1,6 @@
+[local]
+localhost ansible_connection=local remote_host_user=ci
+
+[local:vars]
+number=1.1
+scientific_number=1.1e-2

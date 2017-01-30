@@ -1,0 +1,22 @@
+---
+- name: Testing numbers
+  hosts: local
+  remote_user: "{{remote_host_user}}"
+  become: no
+  gather_facts: no
+
+  tasks:
+    - name: Case1
+      debug:
+         msg: "{{ number }}"
+    - name: Case2
+      debug:
+         msg: "a{{ number }}"
+
+    - name: Case3
+      debug:
+         msg: "{{ scientific_number }}"
+
+    - name: Case4
+      debug:
+         msg: "a{{ scientific_number }}"

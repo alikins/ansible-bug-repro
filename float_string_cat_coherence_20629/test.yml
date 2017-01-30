@@ -1,0 +1,55 @@
+---
+- name: Testing numbers
+  hosts: local
+  remote_user: "{{remote_host_user}}"
+  become: no
+  gather_facts: no
+  vars:
+      some_float: 1.3
+      some_scientific_number: 1.1003e-7
+      cat_sci: "a{{ some_scientific_number }}"
+      cat_float: "a{{ some_float }}"
+
+  tasks:
+    - name: Case1
+      debug:
+         msg: "{{ number }}"
+    - name: Case2
+      debug:
+         msg: "a{{ number }}"
+
+    - name: Case3
+      debug:
+         msg: "{{ scientific_number }}"
+
+    - name: Case4
+      debug:
+         msg: "a{{ some_scientific_number }}"
+
+    - name: Case4a
+      debug:
+          var: some_scientific_number
+
+    - name: Case4b
+      debug:
+         msg: "some_scientific_number={{ some_scientific_number }} type={{ some_scientific_number|type_debug }} pprint={{ some_scientific_number|pprint(true) }} float={{ some_scientific_number|float }} e_format={{ '%G'|format(some_scientific_number) }}"
+
+    - name: Case5a
+      debug:
+         var: cat_sci
+
+    - name: Case5b
+      debug:
+          msg: "{{ cat_sci }}"
+
+    - name: Case5b
+      debug:
+          msg: "cat_sci={{ cat_sci}} type={{ cat_sci|type_debug }}"
+
+    - name: Case6a cat_float
+      debug:
+          var: cat_float
+
+    - name: Case6b cat_float msg
+      debug:
+          msg: "cat_float={{ cat_float }} type={{ cat_float|type_debug }}  pprint={{ cat_float|pprint(true) }} float={{ cat_float|float }}"
