@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  gather_facts: False
+  vars:
+      foo: blippy
+  tasks:
+  - name: First run {{ foo }}
+    command: echo 1
+    register: the_result_var
+
+  - name: Previous result {{ the_result_var.stdout }}
+    command: echo 2
+    register: the_result_var
+    retries: 1
+    delay: 1
+    until: False
+    ignore_errors: true
+
+  - name: The More Previous result {{ the_result_var.stdout }}
+    command: echo 2
+    register: the_result_var
