@@ -1,0 +1,52 @@
+---
+- hosts: localhost
+  gather_facts: false
+  #any_errors_fatal: true
+  tasks:
+    - block:
+        - debug: msg='i execute normally'
+        - name: bin/false to simulate a fail
+          command: /bin/false
+        - debug: msg='i never execute, cause ERROR!'
+      rescue:
+        - debug: msg='rescue block... I caught an error'
+        - name: bin/false to simulate a fail in the rescue block
+          command: /bin/false
+        - debug: msg='I also never execute :-('
+      always:
+        - debug: msg="always block.. this always executes"
+        - set_fact:
+              always_ran: true
+      ignore_errors: true
+
+- hosts: localhost
+  gather_facts: false
+  #any_errors_fatal: true
+  tasks:
+    - block:
+        - debug: msg='any_errors_fatal,  i execute normally'
+
+        - name: any_errors_fatal, initial block, bin/fasel to simulate failure
+          command: /bin/false
+
+        - debug: msg='any errors fatal, i never execute, cause ERROR!'
+      rescue:
+        - name: any_errors_fatal rescure block debug
+          debug: msg='any_errors_fatal, rescue block... I caught an error'
+
+        - name: any_errors_fatal in rescue block, using bin/flase to simulate error
+          command: /bin/false
+
+        - debug: msg='any_errors_fatal, I also never execute :-('
+      always:
+        - name: any_errors_fatal always block debug
+          debug: msg="any errors fatal, always block.. this always executes"
+
+        - set_fact:
+              always_ran: true
+              #    - name: any_errors_fatal fact debug
+              #      debug:
+              #        var: always_ran
+
+
+

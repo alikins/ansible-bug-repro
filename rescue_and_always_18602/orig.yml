@@ -1,0 +1,15 @@
+---
+  - hosts: localhost
+    any_errors_fatal: true
+    tasks:
+      - block:
+          - debug: msg='i execute normally'
+          - command: /bin/false
+          - debug: msg='i never execute, cause ERROR!'
+        rescue:
+          - debug: msg='I caught an error'
+          - command: /bin/false
+          - debug: msg='I also never execute :-('
+        always:
+          - name: A debug task in the always block
+            debug: msg="this always executes"
