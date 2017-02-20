@@ -1,4 +1,3 @@
 - name: Restart test (simulated just a debug)
   debug:
     msg: "restart handler called"
-  #service: name=ntp state=restarted

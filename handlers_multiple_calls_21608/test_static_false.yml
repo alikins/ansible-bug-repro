@@ -1,5 +1,6 @@
 - name: Testing notify handler with include
   hosts: localhost
+  #become: True
   gather_facts: false
   tasks:
     - command: echo
@@ -13,5 +14,6 @@
   handlers:
     - name: restart test debug
       include: tasks/restart_test_debug.yml
+      static: false
 
 
