@@ -1,0 +1,26 @@
+---
+- name: docs example handler test
+  hosts: localhost
+  gather_facts: false
+
+  handlers:
+    - name: restart memcached
+      #service: name=memcached state=restarted
+      command: id
+      listen: "restart web services"
+    - name: restart apache
+      #service: name=apache state=restarted
+      command: id
+      listen: "restart web services"
+
+    - name: another handler
+      command: echo "another handler"
+
+  tasks:
+    - name: restart everything
+      command: echo "this task will restart the web services"
+      notify: "restart web services"
+
+    - name: handler test
+      command: echo "this task will test handlers"
+      notify: "another handler"

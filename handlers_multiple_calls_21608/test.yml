@@ -1,0 +1,20 @@
+- name: Testing notify handler with include
+  hosts: localhost
+  #become: True
+  gather_facts: false
+  tasks:
+    - command: id
+      notify: "restart test debug"
+    - command: id
+      notify: "restart test debug"
+    - command: id
+      notify: "restart test debug"
+    - command: id
+      notify: "restart test debug"
+  handlers:
+    - name: the name of restart test debug
+      #include: tasks/restart_test.yml
+      include: tasks/restart_test_debug.yml
+      listen: "restart test debug"
+
+
