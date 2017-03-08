@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: localhost
   gather_facts: False
 
   tasks:
@@ -21,7 +21,8 @@
           that:
             - groups['group1']
 
-      - name: assert that ungrouped is empty
+      - name: assert that ungrouped only has host2 and ungrouped
         assert:
           that:
-            - groups['ungrouped'] == []
+            - "'host2' in groups['ungrouped']"
+            - "'localhost' in groups['ungrouped']"
