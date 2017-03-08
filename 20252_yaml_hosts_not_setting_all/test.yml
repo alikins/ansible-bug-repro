@@ -10,3 +10,18 @@
       - name: debug groups
         debug:
             var: groups
+
+      - name: assert that all group is not empty
+        assert:
+          that:
+            - groups['all']
+
+      - name: assert that group1 is not empty
+        assert:
+          that:
+            - groups['group1']
+
+      - name: assert that ungrouped is empty
+        assert:
+          that:
+            - groups['ungrouped'] == []
