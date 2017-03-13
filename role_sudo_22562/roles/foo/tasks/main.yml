@@ -1,0 +1,4 @@
+---
+- name: Install Lego GO package
+  shell: go get -u github.com/xenolf/lego
+

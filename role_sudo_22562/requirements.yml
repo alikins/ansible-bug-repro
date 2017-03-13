@@ -1,0 +1,4 @@
+---
+- name: go
+  src: https://github.com/jlund/ansible-go
+  version: cfeba7c4db16aac3fa3db775d01ea911b21f828d
