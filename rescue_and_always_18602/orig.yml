@@ -4,12 +4,18 @@
     tasks:
       - block:
           - debug: msg='i execute normally'
-          - command: /bin/false
+          - name: primary block command
+            command: /bin/false
           - debug: msg='i never execute, cause ERROR!'
         rescue:
-          - debug: msg='I caught an error'
-          - command: /bin/false
+          - name: rescue block debug
+            debug: msg='I caught an error'
+          - name: rescue block command
+            command: /bin/false
           - debug: msg='I also never execute :-('
         always:
           - name: A debug task in the always block
             debug: msg="this always executes"
+
+          - set_fact:
+              always_ran: true

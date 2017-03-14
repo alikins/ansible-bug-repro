@@ -1,0 +1,5 @@
+#jinja2: trim_blocks:False
+# GSSAPI options
+GSSAPIAuthentication {% if openssh.gssapi_authentication %}yes{% else %}no{% endif %}
+GSSAPICleanupCredentials no
+#GSSAPIStrictAcceptorCheck yes

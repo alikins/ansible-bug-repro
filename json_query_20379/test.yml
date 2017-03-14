@@ -1,0 +1,143 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars:
+    users:
+      - name: steve
+        hosts:
+          - host: host_a
+            password: abc
+          - host: host_b
+      - name: bill
+        hosts:
+          - host: host_c
+            password: default
+          - host: host_d
+
+    # from https://github.com/ansible/ansible/issues/20379#issuecomment-280492883
+    example_20379: {
+        "ApplicationVersions": [
+            {
+                "ApplicationName": "gitlab_ci_elasticbeanstalk",
+                "Status": "UNPROCESSED",
+                "VersionLabel": "test-npm-check-626-1313",
+                "Description": "bla",
+                "DateCreated": "2017-01-22T02:02:31.798Z",
+                "DateUpdated": "2017-01-22T02:02:31.798Z",
+                "SourceBundle": {
+                    "S3Bucket": "bla",
+                    "S3Key": "ci/beanstalk/gitlab_ci_elasticbeanstalk/gitlab_ci_elasticbeanstalk-626-1313.war"
+                }
+            },
+            {
+                "ApplicationName": "gitlab_ci_elasticbeanstalk",
+                "Status": "UNPROCESSED",
+                "VersionLabel": "terminate-611-1289",
+                "Description": "bla",
+                "DateCreated": "2017-01-20T00:34:29.864Z",
+                "DateUpdated": "2017-01-20T00:34:29.864Z",
+                "SourceBundle": {
+                    "S3Bucket": "bla",
+                    "S3Key": "ci/beanstalk/gitlab_ci_elasticbeanstalk/gitlab_ci_elasticbeanstalk-611-1289.war"
+                }
+            },
+            {
+                "ApplicationName": "gitlab_ci_elasticbeanstalk",
+                "Status": "UNPROCESSED",
+                "VersionLabel": "terminate-610-1286",
+                "Description": "bla",
+                "DateCreated": "2017-01-20T00:22:02.229Z",
+                "DateUpdated": "2017-01-20T00:22:02.229Z",
+                "SourceBundle": {
+                    "S3Bucket": "bla",
+                    "S3Key": "ci/beanstalk/gitlab_ci_elasticbeanstalk/gitlab_ci_elasticbeanstalk-610-1286.war"
+                }
+            },
+            {
+                "ApplicationName": "gitlab_ci_elasticbeanstalk",
+                "Status": "UNPROCESSED",
+                "VersionLabel": "master-609-1284",
+                "Description": "bla",
+                "DateCreated": "2017-01-19T23:54:32.902Z",
+                "DateUpdated": "2017-01-19T23:54:32.902Z",
+                "SourceBundle": {
+                    "S3Bucket": "bla",
+                    "S3Key": "ci/beanstalk/gitlab_ci_elasticbeanstalk/gitlab_ci_elasticbeanstalk-609-1284.war"
+                }
+            },
+            {
+                "ApplicationName": "gitlab_ci_elasticbeanstalk",
+                "Status": "UNPROCESSED",
+                "VersionLabel": "master-608-1282",
+                "Description": "bla",
+                "DateCreated": "2017-01-19T23:02:44.902Z",
+                "DateUpdated": "2017-01-19T23:02:44.902Z",
+                "SourceBundle": {
+                    "S3Bucket": "bla",
+                    "S3Key": "ci/beanstalk/gitlab_ci_elasticbeanstalk/gitlab_ci_elasticbeanstalk-608-1282.war"
+                }
+            },
+            {
+                "ApplicationName": "gitlab_ci_elasticbeanstalk",
+                "Status": "UNPROCESSED",
+                "VersionLabel": "master-606-1278",
+                "Description": "bla'",
+                "DateCreated": "2017-01-19T22:47:57.741Z",
+                "DateUpdated": "2017-01-19T22:47:57.741Z",
+                "SourceBundle": {
+                    "S3Bucket": "bla",
+                    "S3Key": "ci/beanstalk/gitlab_ci_elasticbeanstalk/gitlab_ci_elasticbeanstalk-606-1278.war"
+                }
+            }
+        ]
+    }
+
+  tasks:
+
+    - name: Test json_query filter
+      assert:
+        that:
+          - "users | json_query('[*].hosts[].host') == ['host_a', 'host_b', 'host_c', 'host_d']"
+
+    - name: "20379 - set_fact app_var_git_branch "
+      set_fact:
+        app_var_git_branch: multi-deployment-400-743
+
+    - name: "20379 - trigger a error in jmespath via json_query filter to test error handling"
+      debug:
+        msg: "{{ example_20379 | json_query('ApplicationVersions[].VersionLabel[] | [?starts_with(@, `multi`)]') }}"
+      ignore_errors: true
+
+    - name: "20379 - Test errors related to https://github.com/ansible/ansible/issues/20379"
+      assert:
+        that: "example_20379 | json_query('ApplicationVersions[].VersionLabel[] | [?starts_with(@, ``'+app_var_git_branch+'``)] | [2:]') == multisdfsdf"
+      ignore_errors: true
+
+    - name: "Delete Application Version for current branch if more than 3 exist."
+      debug:
+          msg: "{{ region }} {{ application_name }} {{ item }} {{ application_version_delete_source }}"
+      #        elasticbeanstalk_version:
+      #          region: "{{ region }}"
+      #          app_name: "{{ application_name }}"
+      #          version_label: "{{ item }}"
+      #          delete_source: "{{ application_version_delete_source }}"
+      #          state: "absent"
+      #when: elasticbeanstalk_versions.ApplicationVersions is defined
+      # with_items: "{{ elasticbeanstalk_versions | json_query('ApplicationVersions[].VersionLabel[] | [?starts_with(@, ``'+app_var_git_branch+'``)] | [2:]') }}"
+      ignore_errors: true
+      with_items: >-
+          {{ example_20379 | json_query('ApplicationVersions[].VersionLabel[] | [?starts_with(@, '+app_var_git_branch+')] | [2:]') }}
+
+    - name: "Delete Application Version for current branch if more than 3 exist  (with double backticks quote)"
+      debug:
+          msg: "{{ region }} {{ application_name }} {{ item }} {{ application_version_delete_source }}"
+      #        elasticbeanstalk_version:
+      #          region: "{{ region }}"
+      #          app_name: "{{ application_name }}"
+      #          version_label: "{{ item }}"
+      #          delete_source: "{{ application_version_delete_source }}"
+      #          state: "absent"
+      when: elasticbeanstalk_versions.ApplicationVersions is defined
+      # with_items: "{{ elasticbeanstalk_versions | json_query('ApplicationVersions[].VersionLabel[] | [?starts_with(@, ``'+app_var_git_branch+'``)] | [2:]') }}"
+      with_items: >-
+          {{ elasticbeanstalk_versions | json_query('ApplicationVersions[].VersionLabel[] | [?starts_with(@, ``'+app_var_git_branch+'``)] | [2:]') }}

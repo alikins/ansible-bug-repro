@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars:
+    with_dict_test:
+      - { key: 'one', value: 1 }
+      - { key: 'two', value: 2 }
+      - { key: 'three', value: 3 }
+      - { key: 'four', value: 4 }
+      - { key: 'five', value: 5 }
+      - { key: 'six', value: 6 }
+  tasks:
+      - name: with_dict test
+        debug: msg="{{ item.key }} --> {{ item.value }}"
+        with_items: "{{ with_dict_test }}"
+        register: debug_result
+
+      - name: show debug_result
+        debug:
+          var: debug_result
+

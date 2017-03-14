@@ -1,8 +1,8 @@
 # create_vm.yml playbook
 - hosts: localhost
   connection: local
-  vars_files:
-    - "group_vars/devboxes/vars.yml"
+  # vars_files:
+  #  - "group_vars/devboxes/vars.yml"
   gather_facts: False
   tasks:
     - name: "debug vaulted json files credentials_file"

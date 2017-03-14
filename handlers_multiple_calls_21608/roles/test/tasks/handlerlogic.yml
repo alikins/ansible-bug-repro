@@ -1,0 +1,7 @@
+---
+- name: execute handler logic
+  shell: echo static executing handler logic >> /tmp/ansible-18178
+
+- name: debug handler logic
+  debug:
+    msg: "Calling handling that just prints this msg (static)"

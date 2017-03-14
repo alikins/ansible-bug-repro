@@ -1,0 +1,9 @@
+- name: included_file_1 copy task that registers baz
+  copy:
+    content: 'bar'
+    dest: '/tmp/foo'
+  register: baz
+
+- name: included_file_1 debug task showing value of baz
+  debug:
+    var: baz

@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: False
+  become: true
+  become_method: sudo
+  tasks:
+      - sysctl:
+          name: net.ipv4.tcp_window_scaling
+          value: 1
+          state: present

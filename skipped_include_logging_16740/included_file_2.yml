@@ -1,0 +1,4 @@
+- name: included_file_2 debug
+  debug:
+    var: baz
+

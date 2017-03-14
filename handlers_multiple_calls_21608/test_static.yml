@@ -3,13 +3,17 @@
   #become: True
   gather_facts: false
   tasks:
-    - command: echo
+    - command: id
       notify: "restart test debug"
-    - command: echo
+    - command: id
+      notify: "restart test debug"
+    - command: id
+      notify: "restart test debug"
+    - command: id
       notify: "restart test debug"
   handlers:
     - name: restart test debug
-      include: tasks/restart_test_set_fact.yml
-      static: true
+      include: tasks/restart_test_debug.yml
+      static: false
 
 

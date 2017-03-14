@@ -7,10 +7,6 @@
       notify: "restart test debug"
     - command: echo
       notify: "restart test debug"
-    - command: echo
-      notify: "restart test debug"
-    - command: echo
-      notify: "restart test debug"
   handlers:
     - name: restart test debug
       include: tasks/restart_test_debug.yml

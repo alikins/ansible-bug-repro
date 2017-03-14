@@ -1,0 +1,4 @@
+- name: Restart test set stats
+  set_stats:
+    data:
+      handlers_called_counter: 1

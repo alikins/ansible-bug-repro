@@ -1,3 +1,6 @@
 - name: Restart test (simulated just a debug)
   debug:
     msg: "restart handler called"
+
+- name: execute handler logic
+  shell: echo executing handler logic >> /tmp/ansible-21608

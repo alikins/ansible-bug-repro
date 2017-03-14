@@ -1,0 +1,28 @@
+---
+- name: task one
+  shell: echo task one >> /tmp/ansible-18178
+  notify: execute handler
+
+- name: task one static
+  shell: echo task one >> /tmp/ansible-18178-static
+  notify: static execute handler
+
+- name: task two
+  shell: echo task two >> /tmp/ansible-18178
+  notify: execute handler
+
+- name: task two static
+  shell: echo task two >> /tmp/ansible-18178-static
+  notify: static execute handler
+
+- name: task three
+  shell: echo task three >> /tmp/ansible-18178
+  notify: execute handler
+
+- name: task three static
+  shell: echo task three >> /tmp/ansible-18178-static
+  notify: static execute handler
+
+- name: command 5
+  command: echo
+  notify: "restart test debug"

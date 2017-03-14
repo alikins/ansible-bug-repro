@@ -11,7 +11,7 @@
          msg: "{{ number }}"
     - name: Case2
       debug:
-         msg: "a{{ number }}"
+         msg: "a{{ number}} a{{ '%e'|format(number) }}"
 
     - name: Case3
       debug:
@@ -19,4 +19,4 @@
 
     - name: Case4
       debug:
-         msg: "a{{ scientific_number }}"
+         msg: "a{{ scientific_number }} a{{ '%G'|format(scientific_number) }}"

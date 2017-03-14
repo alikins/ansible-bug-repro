@@ -5,17 +5,24 @@
       foo: blippy
   tasks:
   - name: First run {{ foo }}
-    command: echo 1
+    command: echo "18236 callback task template fix OUTPUT 1"
     register: the_result_var
 
-  - name: Previous result {{ the_result_var.stdout }}
-    command: echo 2
-    register: the_result_var
-    retries: 1
-    delay: 1
-    until: False
-    ignore_errors: true
+  - block:
+      - name: Previous result {{ the_result_var.stdout }}
+        command: echo "18236 callback task template fix OUTPUT 2"
+        register: the_result_var
+        retries: 1
+        delay: 1
+        until: False
+        ignore_errors: true
+
+      #  - name: assert task_name was
 
   - name: The More Previous result {{ the_result_var.stdout }}
-    command: echo 2
+    command: echo "18236 callback task template fix OUTPUT 3"
     register: the_result_var
+
+  - name: One more previous result {{ the_result_var.stdout }}
+    debug:
+        msg: "nothing to see here."

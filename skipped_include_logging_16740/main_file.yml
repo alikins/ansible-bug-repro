@@ -1,0 +1,11 @@
+- name: "include included_file_1 when stage == 1"
+  include: included_file_1.yml
+  when: stage == 1
+
+- name: "Between stages showing debug of stage"
+  debug:
+    var: stage
+
+- name: "include included_file_2 when stage == 2"
+  include: included_file_2.yml
+  when: stage == 2

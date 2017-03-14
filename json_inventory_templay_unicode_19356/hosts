@@ -2,5 +2,12 @@
 localhost ansible_connection=local
 
 [nginx:vars]
-nginx_upstream_check_upstreams={ "yAuthAPI": { "enable": true, "http_send": "GET / HTTP/1.0\\r\\n\\r\\n", "expect_alive": "http_2xx" }, "yAuthServer": { "enable": true, "http_send": "GET / HTTP/1.0\\r\\n\\r\\n", "expect_alive": "http_2xx" }}
+
+#nginx_upstream_check_upstreams={ "yAuthAPI": { "enable": true, "http_send": "GET / HTTP/1.0\\r\\n\\r\\n", "expect_alive": "http_2xx" }, "yAuthServer": { "enable": true, "http_send": "GET / HTTP/1.0\\r\\n\\r\\n", "expect_alive": "http_2xx" }}
+
+nginx_upstream_check_upstreams={ "yAuthAPI": { "enable": true, "http_send": "OGET / HTTP/1.0\\r\\n\\r\\n", "expect_alive": "http_2xx" }, "yAuthServer": { "enable": true, "http_send": "OGET / HTTP/1.0\\r\\n\\r\\n", "expect_alive": "http_2xx" }}
+#nginx_upstream_check_upstreams={ "yAuthAPI": { "enable": true, "http_send": "IGET / HTTP/1.0\\r\\n\\r\\n", "expect_alive": "http_2xx" }, "yAuthServer": { "enable": true, "http_send": "IGET / HTTP/1.0\\\\r\\\\n\\\\r\\\\n", "expect_alive": "http_2xx" }}
+
+#nginx_upstream_check_upstreams={ "yAuthAPI": { "enable": true, "http_send": "IGET / HTTP/1.0 line_return", "expect_alive": "http_2xx" }, "yAuthServer": { "enable": true, "http_send": "IGET / HTTP/1.0 line_return", "expect_alive": "http_2xx" }}
+#nginx_upstream_check_upstreams=blorp
 

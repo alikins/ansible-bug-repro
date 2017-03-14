@@ -1,0 +1,12 @@
+---
+- name: execute handler
+  include: tasks/handlerlogic.yml
+  static: no
+
+- name: static execute handler
+  include: tasks/static_handlerlogic.yml
+  #static: no
+
+- name: restart test debug
+  debug:
+    msg: "the debug handler was called"

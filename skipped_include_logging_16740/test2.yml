@@ -1,0 +1,18 @@
+# from https://github.com/ansible/ansible/issues/16740#issuecomment-238498607
+- name: "Play #1 that sets stage=1"
+  hosts: localhost
+  gather_facts: False
+  become: no
+  vars:
+    stage: 1
+  tasks:
+   - include: main_file.yml
+
+- name: "Play #2 that sets stage=2"
+  hosts: localhost
+  gather_facts: False
+  become: no
+  vars:
+    stage: 2
+  tasks:
+   - include: main_file.yml

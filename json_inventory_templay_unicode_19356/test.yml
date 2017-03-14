@@ -2,21 +2,37 @@
 - hosts: nginx
   gather_facts: False
   vars:
-      #    nginx_upstream_check_upstreams:
-      #yAuthAPI:
-      #  enable: true
-      #  http_send: 'GET / HTTP/1.0\r\n\r\n'
-      #  expect_alive: "http_2xx"
+    not_nginx_upstream_check_upstreams:
+      yAuthAPI:
+        enable: true
+        http_send: 'GET / HTTP/1.0\r\n\r\n'
+        expect_alive: "http_2xx"
 
       #yAuthServer:
       #  enable: true
       #  http_send: 'GET / HTTP/1.0\r\n\r\n'
       #  expect_alive: "http_2xx"
     nginx_backends:
-        - yAuthAPI
+      - yAuthAPI
   tasks:
     - debug: var=nginx_upstream_check_upstreams
+
+    - name: debug via msg
+      debug:
+        msg: "{{ nginx_upstream_check_upstreams }}"
+
+    - name: debug nginx_upstream_check_upstreams yAuthAPI item
+      debug:
+        var: "{{ nginx_upstream_check_upstreams| safe }}"
+
     - debug: var=nginx_backends
+
+    - debug: var={{ item }}
+      with_items: "{{ nginx_upstream_check_upstreams }}"
+
+    - debug: var={{ item }}
+      with_items: "{{ nginx_backends }}"
+    
     - template:
         src: templates/test2.j2
         dest: /tmp/template_out.txt

@@ -1,0 +1,11 @@
+---
+- debug: msg="msg 1"
+- debug: msg="msg 2"
+- debug: msg="msg 3"
+- debug: msg="msg 4"
+- debug: msg="msg 5"
+- debug: msg="msg 6"
+- debug: msg="msg 7"
+- debug: msg="msg 8"
+- debug: msg="msg 9"
+- debug: msg="msg 10"

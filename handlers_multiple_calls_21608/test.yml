@@ -1,17 +1,23 @@
 - name: Testing notify handler with include
   hosts: localhost
   gather_facts: false
+  roles:
+    - { role: test }
   tasks:
-    - command: echo
+    - name: command 1
+      command: echo
       notify: "restart test debug"
-    - command: echo
+    - name: command 2
+      command: echo
       notify: "restart test debug"
-    - command: echo
+    - name: command 3
+      command: echo
       notify: "restart test debug"
-    - command: echo
+    - name: command 4
+      command: echo
       notify: "restart test debug"
-  handlers:
-    - name: restart test debug
-      include: tasks/restart_test_debug.yml
+      # handlers:
+      #    - name: restart test debug
+      #      include: tasks/restart_test_debug.yml
 
 

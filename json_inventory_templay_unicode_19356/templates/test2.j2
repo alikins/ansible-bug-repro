@@ -1,5 +1,11 @@
 {% for backend in nginx_backends %}
+
+backend = {{ backend }}
+nginx_upstream_check_upstreams = {{ nginx_upstream_check_upstreams| safe| pprint }}
+{#
 {% if nginx_upstream_check_upstreams[backend].enable %}
     backend={{ backend }} check interval=5000 rise=1 fall=3 timeout=4000 type=http;
 {% endif %}
+#}
 {% endfor %}
+

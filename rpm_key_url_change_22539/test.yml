@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  gather_facts: false
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Add Nginx Repo GPG Key
+      rpm_key:
+        state: present
+        key: http://nginx.org/keys/nginx_signing.key

@@ -5,6 +5,7 @@
   handlers:
     - name: handler env
       debug: var=environment
+      register: environment
   tasks:
     - name: task print env
       changed_when: true

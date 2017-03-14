@@ -1,0 +1,5 @@
+# GSSAPI options
+GSSAPIAuthentication {% if openssh.gssapi_authentication %}yes{% else %}no{% endif %}
+
+GSSAPICleanupCredentials no
+#GSSAPIStrictAcceptorCheck yes

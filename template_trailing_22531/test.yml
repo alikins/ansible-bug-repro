@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars:
+      openssh:
+        gssapi_authentication: no
+
+  tasks:
+    - name: test template
+      template:
+        src: test_template.j2
+        dest: /tmp/test_templated_output.j2
+        backup: yes
+        #owner: root
+        #group: root
+        #mode: 0600
+        #validate: '/usr/sbin/sshd -T -f %s'
+        #notify:
+        #- restart sshd
+        #become: yes
+      tags:
+        - sshd_config

@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: "Include a debug file (included_file.yml) with a when: False conditional"
+      include: included_file.yml
+      when: False

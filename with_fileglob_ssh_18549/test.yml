@@ -1,13 +1,23 @@
-- hosts: localhost
+- hosts: other
   gather_facts: no
 
+  #pre_tasks:
   pre_tasks:
-  - stat:
-      path: "{{ item }}"
-    with_fileglob:
-      - "foo*"
-    delegate_to: localhost
-    register: blip
+      - stat:
+          path: "{{ item }}"
+        with_fileglob:
+          - "foo*"
+        delegate_to: localhost
+
+        #      - name: full path with_fileglob
+        #stat:
+        #  path: "{{ item }}"
+        #with_fileglob:
+        #  - "/home/adrian/src/ansible-bug-repro/with_fileglob_ssh_18549/foo*"
+        #with_items:
+        #    - "sdfsdfsdf"
+        #       delegate_to: localhost
+        #register: full_path
 
   #  tasks:
   #  - debug: var=blip
