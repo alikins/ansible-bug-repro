@@ -1,0 +1,27 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: set test fact
+    set_fact:
+      test_eins: /tmp/te'st
+      test_zwei: /tmp/te'st/static_component
+
+  - name: debug shell quote filter
+    debug:
+      msg: "{{ test_zwei }} :  {{ test_zwei | quote }}"
+
+  - name: debug shell quote filter concat string
+    debug:
+      msg: "{{ test_eins + '/static_component'  }} :  {{ test_eins + '/static_component'| quote }}"
+
+  - name: test shell quote of variable
+    shell: |
+        echo {{ test_zwei | quote }}
+    args:
+      executable: "/bin/bash"
+
+  - name: test shell quote of concat string
+    shell: |
+        echo {{ test_eins + '/static_component' | quote }}
+    args:
+      executable: "/bin/bash"
