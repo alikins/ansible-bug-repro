@@ -3,21 +3,32 @@
   #  strategy: debug
   gather_facts: no
   tasks:
-    - name: debug with_items
-      debug:
-          msg: "the item: {{ item }}"
+    - name: Execute test role
+      include_role:
+        name: "testrole_{{item}}"
       with_items:
         - 'one'
         - 'two'
         - 'three'
+      ignore_errors: true
 
-    - name: Execute test role
+    - name: Execute test role static no
+      static: no
+      include_role:
+        name: "testrole_{{item}}"
+      with_items:
+        - 'one'
+        - 'two'
+        - 'three'
+      ignore_errors: true
+
+    - name: Execute test role static no allow_duplicates yes
       static: no
       include_role:
         name: "testrole_{{item}}"
         allow_duplicates: true
-        static: no
       with_items:
         - 'one'
         - 'two'
         - 'three'
+      ignore_errors: true
