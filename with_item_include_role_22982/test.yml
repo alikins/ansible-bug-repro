@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  #  strategy: debug
+  gather_facts: no
+  tasks:
+    - name: debug with_items
+      debug:
+          msg: "the item: {{ item }}"
+      with_items:
+        - 'one'
+        - 'two'
+        - 'three'
+
+    - name: Execute test role
+      static: no
+      include_role:
+        name: "testrole_{{item}}"
+        allow_duplicates: true
+        static: no
+      with_items:
+        - 'one'
+        - 'two'
+        - 'three'

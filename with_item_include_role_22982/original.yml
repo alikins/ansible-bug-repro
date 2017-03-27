@@ -1,0 +1,12 @@
+---
+- hosts: cluster
+  strategy: debug
+  gather_facts: no
+  tasks:
+    - name: Execute test role
+      include_role:
+        name: "testrole_{{item}}"
+      with_items:
+      - 'one'
+      - 'two'
+      - 'three'
