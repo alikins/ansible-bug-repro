@@ -1,0 +1,22 @@
+---
+- hosts: all
+  vars:
+      test_without_vaulted_variable:
+          - not_vaulted: not vaulted variable
+          - another_standard_variable: standard
+      test_with_vaulted_variable:
+          - not_vaulted: not vaulted variable
+          - vaulted: !vault |
+              $ANSIBLE_VAULT;1.1;AES256
+              66376230363937306331353166333731633037326166626530393462636666346630366463313134
+              6635313236366537346339313338633539643665313931390a373264326437663530616630623734
+              31666136343232666235323865653838393830613432343561633465333837633531643564343064
+              3237353766313835310a643963313163663632623064313034363531356330653131303833646138
+              65366139376134396231353864383662623832376239336433623630383464303161
+  tasks:
+    - debug: var=test_without_vaulted_variable
+    - debug: var=test_with_vaulted_variable
+    - debug:
+      with_items: "{{ test_without_vaulted_variable }}"
+    - debug:
+      with_items: "{{ test_with_vaulted_variable }}"

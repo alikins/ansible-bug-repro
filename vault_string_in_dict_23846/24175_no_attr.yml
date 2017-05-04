@@ -1,0 +1,90 @@
+# password is 'notasecret'
+- hosts: localhost
+  gather_facts: false
+  vars:
+    the_var_key: !vault |
+        $ANSIBLE_VAULT;1.1;AES256
+        33303334336532393762663839343035623331613866653830353364613862386161373533643234
+        6134396562633530623662653864626539366634336339620a613130373065323864383539323632
+        33646530653234356537343765353731636335306465336664373031393463623837646564643739
+        3064626463396234300a363633316461376331623664623631326466356236623962626133353932
+        6337
+    the_var_secret:
+      the_key: !vault |
+        $ANSIBLE_VAULT;1.1;AES256
+        33303334336532393762663839343035623331613866653830353364613862386161373533643234
+        6134396562633530623662653864626539366634336339620a613130373065323864383539323632
+        33646530653234356537343765353731636335306465336664373031393463623837646564643739
+        3064626463396234300a363633316461376331623664623631326466356236623962626133353932
+        6337
+
+  tasks:
+    - name: setting facts with and without secret
+      set_fact:
+        without_secret:
+          the_key: 'some_value'
+        with_secret:
+          the_key: !vault |
+            $ANSIBLE_VAULT;1.1;AES256
+            33303334336532393762663839343035623331613866653830353364613862386161373533643234
+            6134396562633530623662653864626539366634336339620a613130373065323864383539323632
+            33646530653234356537343765353731636335306465336664373031393463623837646564643739
+            3064626463396234300a363633316461376331623664623631326466356236623962626133353932
+            6337
+
+    - name: set new fact that includes without_secret
+      set_fact:
+        new_fact_without_secret: "{{ without_secret }}"
+
+    - name: show msg new_fact_without_secret
+      debug:
+        msg: "{{ new_fact_without_secret }}"
+
+    - name: show var new_fact_without_secret
+      debug:
+        var: new_fact_without_secret
+
+    - name: show the secret in new_fact_without_secret
+      debug:
+        msg: "{{ new_fact_without_secret['the_key'] }}"
+
+    - name: set new fact that includes with_secret
+      set_fact:
+        new_fact_with_secret: "{{ with_secret }}"
+
+    - name: show new_fact_with_secret
+      debug:
+        msg: "{{ new_fact_with_secret }}"
+
+    - name: show var new_fact_with_secret
+      debug:
+        var: new_fact_with_secret
+
+    - name: show the secret in new_fact_with_secret
+      debug:
+        msg: "{{ new_fact_with_secret['the_key'] }}"
+      ignore_errors: true
+
+    - name: set new fact that includes with_secret with var
+      set_fact:
+        new_fact_with_secret_with_var: with_secret
+
+    - name: show var new_fact_with_secret_with_var
+      debug:
+        var: new_fact_with_secret_with_var
+
+    - name: set new fact that includes the_var_key
+      set_fact:
+        new_fact_with_the_var_key: "{{ the_var_key }}"
+
+    - name: show var new_fact_with_the_var_key
+      debug:
+        var: new_fact_with_the_var_key
+
+    - name: set new fact that includes the_var_secret
+      set_fact:
+        new_fact_with_the_var_secret: "{{ the_var_secret }}"
+
+    - name: show var new_fact_with_the_var_secret
+      debug:
+        var: new_fact_with_the_var_secret
