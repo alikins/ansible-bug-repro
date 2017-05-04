@@ -1,0 +1,22 @@
+---
+- hosts: all
+  # fact_path: /home/adrian/src/ansible/repro/mem_usage_a23_23579/local_facts/
+  gather_subset:
+      #    - '!ohai'
+    - '!facter'
+  vars:
+    my_facts:
+      - { src: a, dest: 1 }
+      - { src: b, dest: 2 }
+      - { src: c, dest: 3 }
+        #      - { src: d, dest: 4 }
+        #      - { src: e, dest: 5 }
+        #      - { src: f, dest: 6 }
+        #      - { src: g, dest: 7 }
+        #      - { src: h, dest: 8 }
+  
+  tasks:
+    - command: echo {{item.dest}}
+      with_items: '{{my_facts}}'
+      loop_control:
+        label: '{{item.src}}'           # memory grows up also with 'label: "static text"'

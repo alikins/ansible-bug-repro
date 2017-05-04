@@ -1,0 +1,26 @@
+#default
+# Comment with special char░ in there
+# Cafè Eñyei
+localhost ansible_connection=local
+local_ssh ansible_host=127.0.0.1 ansible_connection=ssh
+#local_py3 ansible_connection=local ansible_python_interpreter=/home/adrian/pythons/bin/python3.6
+#local_py36 ansible_connection=local ansible_python_interpreter=/home/adrian/pythons/bin/python3.6
+
+me ansible_host=127.0.0.1 ansible_connection=local
+#adrian@me ansible_host=127.0.0.1 ansible_connection=local ansible_user=adrian
+#adrian@me ansible_host=thinkpad-wired.g.a ansible_user=adrian
+#swoop ansible_host=192.168.1.35
+#adrian@swoop ansible_host=192.168.1.120 ansible_user=adrian
+#cantconnect ansible_host=192.168.1.253 ansible_user=adrian
+#wronguser ansible_host=192.168.1.35 ansible_user=wronguser
+#foo ansible_connection=local
+#newhost ansible_host=192.168.1.120
+
+#[dev_setup]
+#me
+#vagrant_centos ansible_user=vagrant
+
+#[adrian@dev_setup]
+#adrian@me
+#local
+#adrian@default

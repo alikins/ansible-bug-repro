@@ -1,0 +1,16 @@
+---
+- hosts: all
+  gather_facts: true
+  gather_subset:
+      - virtual
+  vars:
+    my_facts:
+      - { src: a, dest: 1 }
+      - { src: b, dest: 2 }
+      - { src: c, dest: 3 }
+      - { src: d, dest: 4 }
+  tasks:
+    - command: echo {{item.dest}}
+      with_items: '{{my_facts}}'
+      loop_control:
+        label: '{{item.src}}'           # memory grows up also with 'label: "static text"'
