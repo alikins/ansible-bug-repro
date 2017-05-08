@@ -1,0 +1,7 @@
+- name: debug dotfiles role
+  debug:
+    msg: "debug dotfiles role"
+
+- name: another debug dotfiles role
+  debug:
+    msg: "another debug dotfiles role"

@@ -1,0 +1,4 @@
+---
+- name: debug homebrew tasks main
+  debug:
+    msg: 'debugg homebrew tasks main'

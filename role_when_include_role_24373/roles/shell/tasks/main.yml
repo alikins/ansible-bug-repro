@@ -1,0 +1,10 @@
+---
+- name: debug shell tasks main
+  debug:
+    msg: 'debugg shell tasks main'
+
+- name: Ensure dotfiles are installed
+  include_role:
+    name: dotfiles
+    #allow_duplicates: true
+    static: yes
