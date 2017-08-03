@@ -1,0 +1,29 @@
+- hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: site | Print var=region
+      debug: var=region
+    - name: site | Print var=global_region
+      debug: var=global_region
+    - name: Include play (static=yes)
+      include: play.yml
+      vars:
+        region: "{{ global_region | default('us-east-1') }}"
+      static: yes
+    - name: Include play (static=no)
+      include: play.yml
+      vars:
+        region: "{{ global_region | default('us-east-1') }}"
+      static: no
+    - name: Include role (static=no)
+      include_role:
+        name: showbug
+        vars:
+          region: "{{ global_region | default('us-east-1') }}"
+      static: no
+    - name: Include role (static=yes)
+      include_role:
+        name: showbug
+        vars:
+          region: "{{ global_region | default('us-east-1') }}"
+      static: yes
