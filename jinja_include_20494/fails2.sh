@@ -1,2 +1,3 @@
 #!/bin/bash
-ansible-playbook -vvvvv fail2.yml
+ansible-playbook -vvvvv fails2.yml
+
