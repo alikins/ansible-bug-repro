@@ -1,0 +1,4 @@
+{% import 'qux' as qux %}
+hello world
+{{ qux.wibble }}
+{% include 'bar' %}

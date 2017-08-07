@@ -1,0 +1,4 @@
+{% import 'qux' as qux with context %}
+hello world
+{{ qux.wibble }}
+{% include 'bar' %}
