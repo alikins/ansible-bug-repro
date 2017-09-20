@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ANSIBLE_CONFIG=./ansible.cfg ansible-playbook -vvv a.yml
+ANSIBLE_CONFIG=./ansible_fails.cfg ansible-playbook -vvv a.yml
