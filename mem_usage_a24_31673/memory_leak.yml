@@ -1,0 +1,17 @@
+---
+
+- name: Demonstrate memory growth as tasks are included
+  hosts: localhost
+  gather_facts: false
+
+
+  tasks:
+
+  - include: foo/some_tasks.yml
+    with_sequence: start=1 end=10
+
+  - include: foo/some_tasks.yml
+    with_sequence: start=1 end=10
+
+  - include: foo/some_tasks.yml
+    with_sequence: start=1 end=10
