@@ -2,9 +2,10 @@
 
 - name: Get timestamp
   set_fact:
-    timestamp: "{{ lookup('pipe', 'date +%s.%3N') }}"
-  delegate_to: localhost
-  register: task_result
+    # timestamp: "{{ lookup('pipe', 'date +%s.%3N') }}"
+    timestamp: "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    # delegate_to: localhost
+    register: task_result
 
 - debug:
-    var: task_result
+  var: task_result
