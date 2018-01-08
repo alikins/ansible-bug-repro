@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: delete any existing dest archive
+      file:
+        # path: the_dest/test.tar.gz
+        path: /home/adrian/src/ansible/repro/archive_empty_files_34569/the_dest/test.tar.gz
+        state: absent
+      when: false
+
+    - name: Test archive long path
+      archive:
+        # path: test-archive-bug
+        path: /home/adrian/src/ansible/repro/archive_empty_files_34569/test-archive-bug/
+        dest: /home/adrian/src/ansible/repro/archive_empty_files_34569/the_dest/test.tar.gz
+        # path: /home/adrian/src/ansible-bug-repro/archive_empty_files_34569/test-archive-bug
+        # dest: /home/adrian/src/ansible/repro/archive_empty_files_34569/the_dest/test.tar.gz
+        format: gz
+        # when: true
+
+    # early api of module
+    - name: Test archive short path
+      archive:
+        path: test-archive-bug
+        creates: the_dest/test.tar.gz
+        compression: gz
+      when: false
