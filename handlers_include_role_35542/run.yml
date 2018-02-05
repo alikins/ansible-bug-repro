@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - import_role: name=role_import
+    - include_role: name=role_include
+    - include_role: name=role_include_works

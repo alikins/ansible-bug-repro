@@ -1,0 +1,4 @@
+---
+- name: "my handler"
+  listen: ['my handler']
+  debug: msg="running handler in {{role_name}}"

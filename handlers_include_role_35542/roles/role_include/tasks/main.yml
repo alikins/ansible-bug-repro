@@ -1,0 +1,4 @@
+---
+- name: "do something"
+  command: /bin/true
+  notify: my handler
