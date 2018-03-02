@@ -1,0 +1,10 @@
+- name: copy nrpe configuration data
+  synchronize:
+    src: "{{ role_path }}/files/conf/"
+    dest: /tmp/techgc/nrpe/conf/
+    recursive: yes
+    archive: no
+    links: yes
+    mode: push
+  tags:
+  - monitoring

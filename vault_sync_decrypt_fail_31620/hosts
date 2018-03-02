@@ -1,0 +1,4 @@
+somehost ansible_connection=local
+
+[some_group]
+somehost
