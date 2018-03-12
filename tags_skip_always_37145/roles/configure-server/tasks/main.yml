@@ -1,0 +1,6 @@
+---
+# tasks file for configure-server
+
+- name: configure the server
+  debug:
+    msg: "Server is configured!"

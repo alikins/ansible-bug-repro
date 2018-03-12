@@ -1,0 +1,6 @@
+---
+# tasks file for install-agent
+
+- name: Install Agent
+  debug:
+    msg: "Agent Installed!"

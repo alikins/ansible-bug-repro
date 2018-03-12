@@ -1,0 +1,14 @@
+---
+- hosts: all
+  gather_facts: True
+  roles:
+    - { role: configure-server, tags: [ 'always' ] }
+  tags:
+    - always
+
+- hosts: all
+  gather_facts: True
+  roles:
+    - install-agent
+  tags:
+    - agent
