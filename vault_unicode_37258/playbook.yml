@@ -1,0 +1,6 @@
+- name: "DoSomeStuff"
+  gather_facts: false
+  hosts: myhost
+  tasks:
+    - debug:
+         var: myvar
